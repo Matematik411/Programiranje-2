@@ -4,7 +4,7 @@ public class Collatz {
         System.out.println(naslednik(5)); // izpise vrstico z naslednik 5
         System.out.println(dolzina(5)); 
         System.out.println(najvecji(5));
-        izpis(5); 
+        izpis(6); 
     }
 
     public static int naslednik(int clen) {
@@ -18,7 +18,7 @@ public class Collatz {
             ++d; // lahko d++, d += 1
             clen = naslednik(clen);
         };
-        return d
+        return d;
     }
 
     public static int najvecji(int clen) {
@@ -27,7 +27,7 @@ public class Collatz {
             clen = naslednik(clen);
             if (clen > a) a = clen;
         };
-        return a
+        return a;
     }
 
     public static void izpis(int clen) {

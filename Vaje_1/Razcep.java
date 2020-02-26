@@ -17,15 +17,15 @@ public class Razcep {
         char oper = '=';
 
         // preveri kje ++
-        for (int d = 2; d * d <= n, d++) {
+        for (int d = 2; d * d <= n; ++d) {
             int e = 0;
             while (n  % d == 0) {
                 e++;
-                n / d;
+                n /= d;
             };
 
             if (e > 0) {
-                System.out.print(" " + oper + ' ' + d) // argument tukaj je niz, saj je prvi clen niz
+                System.out.print(" " + oper + ' ' + d); // argument tukaj je niz, saj je prvi clen niz
                 if (e > 1) System.out.print("^" + e);
                 oper = '*';
             }

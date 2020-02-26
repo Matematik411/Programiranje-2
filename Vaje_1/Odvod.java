@@ -4,12 +4,14 @@ public class Odvod {
         double[] p1 = {1,2,3};
         double[] o1 = odvod(p1);
         izpis(o1);
-        
-        double[] o2 = odvod(new double[] {4, -1, 2, 0, 1}, 2);
-        izpis o2;
 
-        double o3 = odvod(new double[] {1});
-        izpis o3;
+        double[] p2 = {4, -1, 2, 0, 1};
+        double[] o2 = odvod(p2, 2);
+        izpis(o2);
+
+        double[] p3 = {1};
+        double[] o3 = odvod(p3);
+        izpis(o3);
 
     }
 
@@ -18,7 +20,7 @@ public class Odvod {
         // pri tabelah pa ni (), ker ni metoda
         if (n >= p.length) return new double[0]; // nicla pove koliko znakov vsebuje
 
-        double[] op = new double[p.length - n] // ze ko ustvarimo tabelo moramo povedati njeno dolzino!
+        double[] op = new double[p.length - n]; // ze ko ustvarimo tabelo moramo povedati njeno dolzino!
         
         // zacetni faktor je n!
         int f = 1;
@@ -39,11 +41,11 @@ public class Odvod {
 
     public static void izpis(double[] p) {
         System.out.print('{');
-        for (i = 0; i < p.length; ++i) {
+        for (int i = 0; i < p.length; ++i) {
             if (i > 0) System.out.print(", ");
             System.out.print(p[i]);
         };
-        System.out.println();
+        System.out.println('}');
     }   
 
 

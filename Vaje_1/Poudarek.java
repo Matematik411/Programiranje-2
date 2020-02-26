@@ -3,7 +3,7 @@ public class Poudarek {
     public static void main(String[] args) {
         System.out.println(poudari("Zadnja novica"));
         System.out.println(poudariBesede("Zadnja *novica* danes!"));
-
+        
     }
 
     // String z veliko
@@ -29,8 +29,8 @@ public class Poudarek {
             else if (krepko) s += Character.toUpperCase(znak);
 
             else s += znak;
-        return s;
         }
+        return s;
     }
 
 
