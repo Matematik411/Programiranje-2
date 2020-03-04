@@ -1,0 +1,317 @@
+\documentclass{beamer}
+
+\usepackage[slovene]{babel}
+\usepackage{amsfonts,amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+
+\usetheme{Warsaw}
+
+\def\N{\mathbb{N}} % mnozica naravnih stevil
+\def\Z{\mathbb{Z}} % mnozica celih stevil
+\def\Q{\mathbb{Q}} % mnozica racionalnih stevil
+\def\R{\mathbb{R}} % mnozica realnih stevil
+\def\C{\mathbb{C}} % mnozica kompleksnih stevil
+
+
+\def\qed{$\hfill\Box$}   % konec dokaza
+\newtheorem{izrek}{Izrek}
+\newtheorem{trditev}{Trditev}
+\newtheorem{posledica}{Posledica}
+\newtheorem{lema}{Lema}
+\newtheorem{definicija}{Definicija}
+\newtheorem{pripomba}{Pripomba}
+\newtheorem{primer}{Primer}
+\newtheorem{zgled}{Zgled}
+\newtheorem{zgledi}{Zgledi uporabe}
+\newtheorem{zglediaf}{Zgledi aritmetičnih funkcij}
+\newtheorem{oznaka}{Oznaka}
+
+\title{Aritmetične funkcije}
+\author{Marko Petkovšek}
+\institute{Fakulteta za matematiko in fiziko \\
+Oddelek za matematiko}
+\date{24.\ februar 2017}
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\begin{oznaka}
+\[
+\N = \{1,2,3,\ldots\}
+\]
+%\vspace{0.1pt}
+\end{oznaka}
+
+\pause
+\medskip
+\begin{definicija}
+\alert{Aritmetična funkcija} je preslikava oblike
+\[
+f: \N \to A, \quad A \subseteq \C.
+\]
+\pause
+Aritmetična funkcija $f$ je \alert{multiplikativna}, če za poljubni tuji števili $a, b \in \N$ velja:
+\[
+f(ab) = f(a)f(b).
+\]
+%\vspace{0.1pt}
+\end{definicija}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\begin{zglediaf}
+\begin{enumerate}
+\item $\tau(n) = $ število pozitivnih deliteljev števila $n$
+\pause
+\item $\sigma(n) = $ vsota pozitivnih deliteljev števila $n$
+\end{enumerate}
+\end{zglediaf}
+
+\pause
+\medskip
+\begin{zgled}
+\[
+\begin{array}{c|c|cc}
+n & {\rm pozitivni\ delitelji\ } n & \tau(n) & \sigma(n) \\
+\hline
+1 & 1 & 1 & 1 \\
+2 & 1,2 & 2 & 3 \\
+3 & 1,3 & 2 & 4 \\
+4 & 1,2,4 & 3 & 7 \\
+5 & 1,5 & 2 & 6 \\
+6 & 1,2,3,6 & 4 & 12
+\end{array}
+\]
+\end{zgled}
+
+\pause
+\medskip
+\begin{trditev}
+Funkciji $\tau$ in $\sigma$ sta multiplikativni.
+\end{trditev}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Eulerjeva funkcija}
+
+\pause
+\begin{definicija}
+Za vse $n \in \N$ s \alert{$\varphi(n)$} označimo število 
+celih števil iz množice $\{1, 2, \ldots, n\}$, ki so tuja številu $n$.
+Preslikavo \alert{$\varphi: \N \rightarrow \N$} imenujemo \alert{Eulerjeva funkcija}.
+\end{definicija}
+\pause
+
+\vfill
+\begin{zgled}
+\[
+\begin{array}{clc}
+ n & \{1, 2, \ldots, n\}          & \varphi(n)       \\
+ \hline
+ 1 & \{\bf{1}\}                    &     1      \\
+ 2 & \{{\bf 1},2 \}               &     1      \\
+ 3 & \{{\bf 1,2},3 \}             &     2      \\
+ 4 & \{{\bf 1},2,{\bf 3},4 \}     &     2      \\
+ 5 & \{{\bf 1,2,3,4},5 \}         &     4      \\
+ 6 & \{{\bf 1},2,3,4,{\bf 5},6 \} &     2
+\end{array}
+\]
+\end{zgled}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+{\bf Vprašanje:} \quad $\varphi(10^{10}) = \varphi(10000000000) =\ ?$
+\pause
+
+\bigskip
+\begin{trditev}
+Naj bo $p$ praštevilo. Potem je $\varphi(p) = \pause p-1$.
+\end{trditev}
+\pause
+
+\bigskip
+\begin{trditev}
+Naj bo $p$ praštevilo in $k \in \N$. Potem je $\varphi(p^k) = \pause p^k-p^{k-1}$.
+\end{trditev}
+\pause
+
+\bigskip
+\begin{izrek}
+Če sta $a$ in $b$ tuji naravni števili, je
+$\varphi(a b) = \varphi(a)\varphi(b)$.
+\end{izrek}
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\begin{posledica}
+\[
+\varphi(n)\ =\ n\times \prod_{p\,|\,n} \left(1 - \frac{1}{p}\right)
+\]
+\end{posledica}
+
+\bigskip
+\pause
+\begin{izrek}
+\[
+\sum_{d\,|\,n} \varphi(d)\ =\ \pause n
+\]
+\end{izrek}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\begin{izrek}[Eulerjev izrek]
+Naj bosta $n \in \N$ in $a \in \Z$ tuji števili. Potem je
+\[
+a^{\varphi(n)} \equiv 1 \pmod{n}.
+\]
+\end{izrek}
+
+\pause
+
+\bigskip
+\begin{posledica}[mali Fermatov izrek]
+Naj bo $p$ praštevilo in $a \in \Z$ celo število, ki ni deljivo s $p$. Potem je
+\[
+a^{p-1} \equiv 1 \pmod{p}.
+\]
+\end{posledica}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{M\"obiusova funkcija}
+
+\pause
+\begin{definicija}
+Preslikavo \alert{$\mu: \N \rightarrow \Z$}, definirano s predpisom
+\[
+\mu(n)\ =\ \left\{
+\begin{array}{cl}
+0, & \mbox{če\ } n \mbox{\ deljiv s kvadratom praštevila,} \\
+(-1)^r, & \mbox{sicer,}
+\end{array}
+\right.
+\]
+kjer je $r$ število različnih prafaktorjev števila $n$, imenujemo \em{M\"obiusova funkcija}.
+\end{definicija}
+
+\pause
+\[
+\begin{array}{c|*{10}{r}}
+   n   & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+\hline
+\mu(n) & \ \ 1 & -1 & -1 & \ \ 0 & -1 & \ \ 1 & -1 & \ \ 0 & \ \ 0 & \ \ 1
+\end{array}
+\]
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\bigskip
+
+\begin{izrek}
+Če sta $a$ in $b$ tuji naravni števili, je
+$\mu(a b) = \mu(a)\mu(b)$.
+\end{izrek}
+
+\pause
+
+\bigskip
+\begin{trditev}
+Za vse $n \in \N$ velja enačba
+\[
+\label{mirek}
+\sum_{d\,|\,n} \mu(d)\ =\ \left\{
+\begin{array}{ll}
+1, & n = 1, \\
+0, & n > 1,
+\end{array}
+\right.
+\]
+kjer $d$ preteče vse pozitivne delitelje števila $n$.
+\end{trditev}
+
+\pause
+
+\bigskip
+\begin{posledica}
+\[
+\mu(n)\ =\ \left\{
+\begin{array}{cl}
+1, & n = 1, \\
+-\displaystyle\sum_{d\,|\,n, \,d < n} \mu(d), & n > 1.
+\end{array}
+\right.
+\]
+\end{posledica}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+
+\begin{izrek} \alert{(M\"obiusov obrat)} \ 
+Za aritmetični funkciji $f, g: \N \rightarrow \C$ velja:
+\[
+g(n)\ =\ \sum_{d\,|\,n} f(d)\quad \Longleftrightarrow\quad f(n)\ =\ \sum_{d\,|\,n} \mu\left(\frac{n}{d}\right)g(d)
+\]
+\end{izrek}
+
+\pause
+\bigskip
+\begin{zgledi}
+\begin{eqnarray*}
+\sum_{d\,|\,n}\varphi(d)\ =\ n\quad &\Longrightarrow&\quad\pause \varphi(n)\ =\ \sum_{d\,|\,n}\mu\left(\frac{n}{d}\right)d \\
+\pause
+\tau(n)\ =\ \sum_{d\,|\,n} 1 \quad &\Longrightarrow& \quad\pause \sum_{d\,|\,n}\mu\left(\frac{n}{d}\right)\tau(d)\ =\ 1 \\
+\pause
+\sigma(n)\ =\ \sum_{d\,|\,n} d \quad &\Longrightarrow& \quad\pause \sum_{d\,|\,n}\mu\left(\frac{n}{d}\right)\sigma(d)\ =\ n
+\end{eqnarray*}
+\end{zgledi}
+
+
+\end{frame}
+
+
+\end{document}
