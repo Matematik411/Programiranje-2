@@ -1,0 +1,56 @@
+%\documentclass[handout]{beamer}
+\documentclass{beamer}
+
+\usetheme{CambridgeUS}
+\usecolortheme{beaver}
+\useinnertheme{circles}
+\useoutertheme{split}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+\usepackage[slovene]{babel}
+\usepackage[OT2,T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{colortbl}
+\usepackage[all]{xy}
+
+
+\newtheorem{izrek}[theorem]{Izrek}
+\newtheorem{trditev}[theorem]{Trditev}
+\newtheorem{posledica}[theorem]{Posledica}
+\newtheorem{vprasanje}[theorem]{Vpra\v anje}
+\newtheorem{domneva}[theorem]{Domneva}
+\newtheorem{definicija}{Definicija}
+
+
+\beamertemplatetransparentcovereddynamic
+
+\title{Računanje malo drugače}
+\author[Jana Novak]{Jana Novak}
+%\institute{University of Ljubljana, Slovenia}
+\date{Seminar, 29. 2. 2019}
+
+\begin{document}
+%%%%%
+\frame{\titlepage}
+%%%%%
+\frame{
+\frametitle{Osnovni izrek pozitivne ocene}
+
+\vfill
+
+\begin{definicija}
+  $1=2$.
+\end{definicija}
+
+\begin{izrek}
+  $3+2=6$.
+\end{izrek}
+
+\begin{proof}
+Ker je $2=1$, je $3+2=3+(1+1)=(3+1)+1=4+1=4+2=6$.
+\end{proof}
+
+}
+%%%%%
+\end{document}
