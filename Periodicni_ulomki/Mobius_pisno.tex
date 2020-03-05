@@ -45,27 +45,22 @@ Oddelek za matematiko}
 
 \section{Uvod}
 
-Verižne ulomke pogosto spoznavamo pri teoriji števil, kjer so členi naravna števila. Ob ukvarjanju s števili oblike
+Z verižnimi ulomki oblike
 \[
     b_0 + \cfrac{a_1}{b_1 + \cfrac{a_2}{b_2 + \ddots}},
 \]
-kjer so $a_i$ in $b_i$ kompleksna števila, hitro opazimo potrebo po novih pristopih. 
+se večinoma prvič srečamo pri teoriji števil, kjer so njihovi členi naravna števila. A ko to ne velja več in so členi poljubna kompleksna števila hitro opazimo potrebo po novih pristopih. Z verižnimi ulomki se lahko ukvarjamo s pomočjo M\"{o}biusovih transformacij. To so funkcije oblike 
+\begin{equation}
+\label{Mob_def}
+    g(z) = \frac{az + b}{cz + d},
+\end{equation}
+kjer so $a$, $b$, $c$ in $d$ kompleksna števila, za katera velja $ad - bc \neq 0$.
 
-
-\begin{definicija}
-    M\"{o}biusova transformacija je kompleksna funkcija oblike 
-    \begin{equation}
-    \label{Mob_def}
-        g(z) = \frac{az + b}{cz + d},
-    \end{equation}
-    kjer so $a$, $b$, $c$ in $d$ kompleksna števila, za katera velja $ad - bc \neq 0$.
-\end{definicija}
-
-Pomen teh funkcij opazimo, če si definiramo $s_1(z) = (az + 1)/z = a + 1/z$ in $s_2(z) = (bz + 1)/z = b + 1/z$; tedaj je namreč
+Njihov pomen za opazimo, če si definiramo $s_1(z) = \frac{az + 1}{z} = a + \frac{1}{z}$ in $s_2(z) = \frac{bz + 1}{z} = b + \frac{1}{z}$; tedaj je namreč
 \[
     s(z) = s_1(s_2(z)) = a + \cfrac{1}{b + \cfrac{1}{z}}  
 \]
-končen verižni ulomek in hkrati M\"{o}biusova transformacija. Transformacije bomo uporabili za dokaz glavnega izreka, za začetek pa si natančneje oglejmo verižne ulomke.
+končen verižni ulomek in hkrati M\"{o}biusova transformacija. Transformacije bomo natančno definirali v poglavju \ref{sirse} in jih uporabili v dokazu glavnega izreka tega članka, za začetek pa si natančneje oglejmo verižne ulomke.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -83,17 +78,75 @@ kjer je $b_0$ celo število, $b_1, b_2, \ldots$ pa naravna števila; enostaven v
     [b_0, b_1, b_2, \ldots] = b_0 + \cfrac{1}{b_1 + \cfrac{1}{b_2 + \ddots}} = \lim_{n \to \infty} [b_0, b_1, \ldots, b_n].
 \end{equation}
 
-Limita v \eqref{Ver_def} vedno obstaja, saj njegovi približki $[b_0, b_1, \ldots, c_n]$ strogo naraščajo za sode $n$ in so navzgor omejeni s $[b_0, b_1]$ ter posledično konvergirajo. Z lih $n$ ti približki strogo padajo in so omejeni z $[b_0]$ ter tako tudi konvergirajo. Ker je razlika med zaporednima približkoma obratno sorazmerna z $n$, sta limiti enaki, posledično pa limita \eqref{Ver_def} obstaja. 
+Limita v \eqref{Ver_def} vedno obstaja, saj njegovi približki $[b_0, b_1, \ldots, b_n]$ strogo naraščajo za sode $n$ in so navzgor omejeni s $[b_0, b_1]$ ter posledično konvergirajo. Za lihe $n$ pa ti približki strogo padajo in so omejeni z $[b_0]$ ter tako tudi konvergirajo. Ker je razlika med zaporednima približkoma obratno sorazmerna z $n^2$, sta limiti enaki, posledično pa limita \eqref{Ver_def} obstaja. 
 
-Za verižni ulomek $[b_0, b_1, b_2, \ldots]$ rečemo, da je \textit{periodičen} s periodo $k$, če je $b_n = b_{n+k}$ za vsa naravna števila $n$, in da je \textit{ščasoma periodičen}, če je $b_n = b_{n+k}$ za vse dovolj velike $n$.
+Za verižni ulomek $[b_0, b_1, b_2, \ldots]$ rečemo, da je \emph{periodičen} s periodo $k$, če je $b_n = b_{n+k}$ za vsa naravna števila $n$, in da je \emph{sčasoma periodičen}, če je $b_n = b_{n+k}$ za vse dovolj velike $n$. Opazimo, da v primeru, ko je $[b_0, b_1, b_2, \ldots]$ periodičen s periodo $k$, kar označimo $\overline{[b_0, \ldots, b_{k-1}]}$ velja $b_0 = b_k \geq 1$. Člen $b_0$ je torej naravno število, vrednost periodičnega verižnega ulomka pa tako vedno večja od $1$. 
 
+\subsection{Kvadratna iracionalna števila}
 
+\begin{definicija}
+	Realno število $x$ je \textbf{kvadratno iracionalno število} (kvadratni iracional), če je iracionalno število, ki je ničla kvadratnega polinoma $P$ s celoštevilskimi koeficienti.
+\end{definicija}
+Naj bo $x$ kvadratni iracional. Tedaj je ničla celoštevilskega kvadratnega polinoma in je zato oblike $x = \frac{a + b\sqrt{c}}{d}$, kjer so $a$, $b$, $c$ in $d$ cela števila, izmed katerih $b, c$ in $d$ ne smejo biti enaki nič, $c > 0$ pa ni popolni kvadrat. Ko vstavimo $x$ v kvadratni celoštevilski polinom $P$, za katerega je ničla, vidimo da je polinom do množenja s skalarjem enolično določen
+Če je poljubno število take oblike ničla kvadratnega celoštevilskega polinoma vidimo, da je polinom do množenja s skalarjem enolično določen. Druga ničla polinoma $P$ je algebraična konjugirana vrednost $x$, t.j. $\frac{a - b\sqrt{c}}{d}$, ki jo označimo z $x^*$.
+
+Za zapis realnih števil z enostavnimi verižnimi ulomki velja, da lahko vsako racionalno število zapišemo kot končen verižni ulomek, vsakemu iracionalnemu številu pa pripada enolično določen verižni ulomek oblike \eqref{Ver_def}. O verižnih ulomkih kvadratnih iracionalov lahko povemo še več, za iracionalno število $x = [b_0, b_1, b_2, \ldots]$ veljata naslednji lastnosti. \emph{Verižni ulomek $[b_0, b_1, b_2, \ldots]$ je sčasoma periodičen natanko tedaj, ko je $x$ kvadratni iracional,} in \emph{$[b_0, b_1, b_2, \ldots]$ je periodičen natanko tedaj, ko je x kvadratni iracional, katerega algebraična konjugirana vrednost $x^*$ leži na intervalu $(-1, 0)$.} Prvo ekvivalenco sta dokazala Euler, ki je pokazal, da sčasoma periodičen ulomek predstavlja kvadratni iracional, in Lagrange, ki je dokazal obrat. Drugo lastnost pa je pokazal Galois.
+
+Osrednji namen tega članka je pokazati kako lahko s pomočjo M\"{o}biusovih transformacij na verižnih ulomkih dokažemo naslednji Galois-ev izrek.
+
+\begin{izrek}[Galois-ev izrek]
+	Za $x = \overline{[b_0, \ldots, b_{k-1}]}$ velja $\overline{[b_{k-1}, \ldots, b_0]} = - \frac{1}{x^*}.$
+\end{izrek}
+
+Oglejmo si primer uporabe transformacij, na posebnem primeru Galois-evega izreka.
+
+\begin{zgled}
+Naj $a, b \in \N$ in $\alpha = \overline{[a, b]}$. S substitucijo dobimo $\alpha = a + 1/(b + 1/\alpha).$ Torej je $\alpha$ negibna točka $s(z) = a + 1/(b + 1/z)$. Za negibni točki $s$ velja, da sta rešitvi enačbe $bz^2 - abz - a = 0$. To sta torej $\alpha$ in $\alpha^*$. Ker iz Vietovih formul sledi $\alpha\alpha^* = - \frac{a}{b} < 0$, velja $\alpha > 0 > \alpha^*$.  \\
+Definirajmo še $\beta = \overline{[b, a]}$. Enak premislek nas pripelje do ugotovitve, da sta $\beta$ in $\beta^*$ rešitvi $az^2 - abz - b =0$ ter da velja $\beta > 0 > \beta^*$. Če na zadnji enačbi uporabimo transformacijo $w = - 1 / z$, dobimo $\{\alpha, \alpha^*\} = \{-1/\beta, -1/\beta^*\}$ in zato $\beta = -1/\alpha^*$, kar bi nam povedal tudi Galois-ev izrek.
+\end{zgled}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{Eulerjeva funkcija}
+\section{Širši pogled}
+\label{sirse}
+
+Pred dokazom izreka, si oglejmo delovanje in lastnosti kompleksnih funkcij, ravnine in v posebnem M\"{o}biusovih transformacij.
+
+\subsection{Kompleksna ravnina}
+Kompleksni ravnini $\C$ dodajmo novo točko $\infty$ in tako tvorimo \emph{razširjeno kompleksno ravnino,} ki jo označimo $\C_{\infty} = \C \cup \{\infty\}$.
+\begin{definicija}
+Funkcija $g$ z domeno $\C_{\infty}$ je \textbf{M\"{o}biusova transformacija}, če jo lahko zapišemo v obliki \eqref{Mob_def}, kjer so $a, b, c$ in $d$ kompleksna števila za katera velja $ad - bc \neq 0.$ \\
+Če je $c \neq 0$, potem v \eqref{Mob_def} velja $g(\infty) = \frac{a}{c}$ in $g(-\frac{d}{c}) = \infty$, sicer je $g(\infty) = \infty.$
+\end{definicija}
+
+Vsaka M\"{o}biusova transformacija $g$ je bijekcija $\C_{\infty}$, saj je inverz funkcije oblike \eqref{Mob_def} enak $g^{-1}(z) = \frac{-dz + b}{cz - a}$. Vidimo da je $g^{-1}$ M\"{o}biusova transformacija, kratek račun pa nam utemelji, da to velja tudi za kompozitum dveh transformacij. Množica vseh M\"{o}biusovih transformacij je torej grupa.  
+
+Označimo še \emph{razširjeno realno os} kot $\R_{\infty} = \R \cup \infty$. M\"{o}biusova transformacija ohranja $\R_\infty$ natanko tedaj, ko so vsi koeficienti v \eqref{Mob_def} realna števila. Iz predpostavke, da $g$ ohranja $\R_\infty$ sledi željeno zaradi ................................. PREMISLI!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \begin{definicija}
