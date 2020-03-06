@@ -1,7 +1,7 @@
 \documentclass[a4paper,12pt]{article}
 
 \usepackage[slovene]{babel}
-\usepackage{amsfonts,amssymb,amsmath}
+\usepackage{amsfonts,amssymb,amsmath,amsthm}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -13,6 +13,8 @@
 \def\Q{\mathbb{Q}} % mnozica racionalnih stevil
 \def\R{\mathbb{R}} % mnozica realnih stevil
 \def\C{\mathbb{C}} % mnozica kompleksnih stevil
+\def\Ci{\mathbb{C}_{\infty}} % mnozica kompleksnih stevil + infty
+\def\H{\mathbb{H}} % zgornja kompleksna polravnina
 \newcommand{\geslo}[2]{\noindent\textbf{#1} \quad \hangindent=1cm #2\\[-1pc]}
 
 \def\qed{$\hfill\Box$}   % konec dokaza
@@ -24,6 +26,7 @@
 \newtheorem{pripomba}{Pripomba}
 \newtheorem{definicija}{Definicija}
 \newtheorem{zgled}{Zgled}
+\newenvironment{dokaz}[1][Dokaz]{\begin{proof}}{\end{proof}}
 
 \title{M\"{o}biusove transformacije in periodični verižni ulomki \\ 
 \Large Seminar}
@@ -115,17 +118,59 @@ Definirajmo še $\beta = \overline{[b, a]}$. Enak premislek nas pripelje do ugot
 Pred dokazom izreka, si oglejmo delovanje in lastnosti kompleksnih funkcij, ravnine in v posebnem M\"{o}biusovih transformacij.
 
 \subsection{Kompleksna ravnina}
-Kompleksni ravnini $\C$ dodajmo novo točko $\infty$ in tako tvorimo \emph{razširjeno kompleksno ravnino,} ki jo označimo $\C_{\infty} = \C \cup \{\infty\}$.
+Kompleksni ravnini $\C$ dodajmo novo točko $\infty$ in tako tvorimo \emph{razširjeno kompleksno ravnino,} ki jo označimo $\Ci = \C \cup \{\infty\}$.
 \begin{definicija}
-Funkcija $g$ z domeno $\C_{\infty}$ je \textbf{M\"{o}biusova transformacija}, če jo lahko zapišemo v obliki \eqref{Mob_def}, kjer so $a, b, c$ in $d$ kompleksna števila za katera velja $ad - bc \neq 0.$ \\
+Funkcija $g$ z domeno $\Ci$ je \textbf{M\"{o}biusova transformacija}, če jo lahko zapišemo v obliki \eqref{Mob_def}, kjer so $a, b, c$ in $d$ kompleksna števila za katera velja $ad - bc \neq 0.$ \\
 Če je $c \neq 0$, potem v \eqref{Mob_def} velja $g(\infty) = \frac{a}{c}$ in $g(-\frac{d}{c}) = \infty$, sicer je $g(\infty) = \infty.$
 \end{definicija}
 
-Vsaka M\"{o}biusova transformacija $g$ je bijekcija $\C_{\infty}$, saj je inverz funkcije oblike \eqref{Mob_def} enak $g^{-1}(z) = \frac{-dz + b}{cz - a}$. Vidimo da je $g^{-1}$ M\"{o}biusova transformacija, kratek račun pa nam utemelji, da to velja tudi za kompozitum dveh transformacij. Množica vseh M\"{o}biusovih transformacij je torej grupa.  
+Vsaka M\"{o}biusova transformacija $g$ je bijekcija $\Ci$, saj je inverz funkcije oblike \eqref{Mob_def} enak $g^{-1}(z) = \frac{-dz + b}{cz - a}$. Vidimo da je $g^{-1}$ M\"{o}biusova transformacija, kratek račun pa nam utemelji, da to velja tudi za kompozitum dveh transformacij. Množica vseh M\"{o}biusovih transformacij je torej grupa.  
 
 Označimo še \emph{razširjeno realno os} kot $\R_{\infty} = \R \cup \infty$. M\"{o}biusova transformacija ohranja $\R_\infty$ natanko tedaj, ko so vsi koeficienti v \eqref{Mob_def} realna števila. Iz predpostavke, da $g$ ohranja $\R_\infty$ sledi željeno zaradi ................................. PREMISLI!!
+Obrat pa je viden brez težav. Opazimo lahko še več, saj
+\[
+    \text{Im}[g(z)] = \frac{(ad - bc)\text{Im[z]}}{|cz + d|^2}  
+\]
+velja da $g$ ohranja zgornjo kompleksno polravnino $\H = \{x + iy\ ; x, y \in \R, y > 0\}$ natanko tedaj ko velja $ad - bc > 0$. V primeru ko je zadnja vrednost enaka $-1$ se kompleksni polravnini ravno zamenjata, kot je to pri $h(z) = \frac{1}{z}$; v primeru $k(z) = - \frac{1}{z}$ pa se polravnini ohranita.
 
+Omenimo še, kako $\Ci$ opremimo z metriko. Stereografska projekcija je znan 
+homeomorfizem med $\C$ in enotsko sfero $\mathbb{S}$ brez ene točke v $\R^3$. To projekcijo lahko razširimo do homeomorfizma med $\Ci$ in celotno sfero $\mathbb{S}$ ter nato prenesemo Evklidsko metriko iz $\mathbb{S}$ v metriko $\chi$ na $\Ci$. Za metrični prostor $(\Ci, \chi)$ je nato vsaka M\"{o}biusova transformacija $g$ homeomorfizem prostora $\Ci$ samega vase.
 
+V primeru same zgornje polravnine $\H$ pa ob vpeljavi norme $||z|| = |z| / y$, kjer je $|z|$ absolutna vrednost kompleksnega števila $z$ in $y = \text{Im}[z]$, dobimo Poincar\'{e}-jev model polravnine, ki je eden izmed standardnih modelov hiperbolične ravnine. Tu so M\"{o}biusove transformacije, ki ohranjajo $\H$ ($ad - bc > 0$), ravno vse izometrije $\H$. Meja prostora ustreza $\R_{\infty}.$ 
+
+\subsection{Modularna grupa}
+
+\begin{definicija}
+    \textbf{Modularna grupa} $\Gamma$ je grupa vseh M\"{o}biusovih transformacij oblike \eqref{Mob_def} s celoštevilskimi koeficienti $a, b, c$ in $d$, za katere velja $ad - bc = 1$.
+\end{definicija}
+
+Kot smo že omenili, elementi $\Gamma$ na $\H$ delujejo kot izometrije hiperbolične metrike, njihovo delovanje na $\R_{\infty}$ pa je tesno povezano s teorijo verižnih ulomkov. V grupi namreč med drugim leži tudi funkcija $s(z) = a + 1/(b + 1/z)$.
+
+Posebno zanimive so \textbf{\emph{loksodromične izometrije}} $\H$. To so M\"{o}biusove transformacije, ki ohranjajo $\H$ in imajo dve različni negibni točki. Primer takšne funkcije je $z \mapsto 2z$, katere negibni točki sta $0$ in $\infty$. Ob njihovi obravnavi pridemo do pomembne ugotovitve glede kvadratnih iracionalov.
+\begin{trditev}
+    Realno število $x$ je kvadratno iracionalno število natanko tedaj ko je negibna točka nekega loksodromičnega elementa $g$ modularne grupe $\Gamma$.\\
+    Tedaj je algebraična konjugirana vrednost $x^*$ druga negibna točka $g$.
+\end{trditev}
+
+Tudi te trditve ne bomo dokazovali, bomo jo pa uporabili pri dokazovanju izreka. V ta namen si ogledjo še eno pomembno lastnost. Če je $g$ loksodromična funckija z negibnima točkama $u$ in $v$, potem je ena izmed njih, recimo $u$, \emph{privlačna negibna točka}, druga (v tem primeru $v$) pa je \emph{odbojna negibna točka}. To pomeni da ob večkratni aplikaciji funkcije $g$ na elementu $z \neq v$ v limiti velja $g^n(z) = g(g(\cdots(g(z)))) \to u$. V že omenjenem primeru $z \mapsto 2z$ je $\infty$ privlačna negibna točka, $0$ pa je odbojna. Praviloma velja, da je negibna točka $w$ poljubne funkcije $f$ privlačna oziroma odbojna, če velja zaporedoma $|f'(w)| < 1$ oziroma $|f'(w)| > 1$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Dokaz izreka}
+
+S pridobljenim znanjem bomo v tem poglavju dokazali Galois-ev izrek. Dokaz temelji na naslednji lemi, ki posploši pomen algebraične konjugirane vrednosti števila, saj $b_i$ v lemi niso nujno cela števila. Za lažji zapis bomo v lemi pri komponiranju uporabljali okrajšave kot na primer $s_1s_2(z) = s_1(s_2(z)).$
+
+\begin{lema}
+    Za funkcije $s_i$, $i \in \{1, \ldots, k\}$ oblike $s : z \mapsto b + 1/z$, kjer je $b \geq 1$, ima končni kompozitum $S = s_1 \cdots s_k$ privlačno negibno točko $\zeta \in (1, \infty)$ in odbojno negibno točko $\tilde{\zeta} \in (-1, 0).$ 
+\end{lema}
+\begin{dokaz}
+    Naj bo $S = s_1 \cdots s_2$, za $s_i(z) = b_i + 1/z$ in $b_i \geq 1$. Vsak $s_i$ slika interval $(1, \infty)$ samega vase, torej naredi kompozitum $S$ enako. Prav tako je vsak $s_i$ skrčitev, kar posledično velja tudi za kompozitum $S$. Na podlagi Banachovega skrčitvenega načela lahko zato sklepamo, da ima $S$ negibno točko $\zeta \in (1, \infty)$. Za določitev vrste negibne točke si pomagamo z velikostjo odvoda. Ker velja $|s'_i(z)| < 1$ na celem $(1, \infty)$, lahko preko verižnega pravila za odvajanje kompozituma sklepamo $|S'(\zeta)| < 1$. To pomeni, da je $\zeta$ privlačna negibna točka kompozituma $S$.\\
+    Definirajmo še $\tilde{S} = s_k \cdots s_1$. Analogni postopek nas pripelje do ugotovitve, da ima $\tilde{S}$ privlačno negibno točko $\tilde{\zeta} \in (1, \infty)$. Naj bo $\sigma(z) = -1/z$. Tedaj velja
+    \[
+        \delta s_i (z) = - \cfrac{1}{b + \cfrac{1}{z}} = \cfrac{1}{-\cfrac{1}{z} - b} = s^{-1}_i \delta (z),
+    \]
+    za vse $z$ in zato tudi $\delta S = \tilde{S}^{-1} \delta$. Ko v zadnjo enačbo vstavimo $\delta (\tilde{\zeta})$ vidimo, da je tudi to negibna točka kompozituma $S$. Ker $\delta (\tilde{\zeta}) \in (-1, 0)$ je to od $\zeta$ različna negibna točka in je zato odbojna.
+\end{dokaz}
 
 
 
