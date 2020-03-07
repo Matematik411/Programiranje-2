@@ -98,6 +98,7 @@ Za zapis realnih števil z enostavnimi verižnimi ulomki velja, da lahko vsako r
 Osrednji namen tega članka je pokazati kako lahko s pomočjo M\"{o}biusovih transformacij na verižnih ulomkih dokažemo naslednji Galois-ev izrek.
 
 \begin{izrek}[Galois-ev izrek]
+    \label{Galois}
 	Za $x = \overline{[b_0, \ldots, b_{k-1}]}$ velja $\overline{[b_{k-1}, \ldots, b_0]} = - \frac{1}{x^*}.$
 \end{izrek}
 
@@ -172,95 +173,32 @@ S pridobljenim znanjem bomo v tem poglavju dokazali Galois-ev izrek. Dokaz temel
     za vse $z$ in zato tudi $\delta S = \tilde{S}^{-1} \delta$. Ko v zadnjo enačbo vstavimo $\delta (\tilde{\zeta})$ vidimo, da je tudi to negibna točka kompozituma $S$. Ker $\delta (\tilde{\zeta}) \in (-1, 0)$ je to od $\zeta$ različna negibna točka in je zato odbojna.
 \end{dokaz}
 
+Združimo zdaj vse v dokazu izreka \ref{Galois}.
+
+\begin{proof}[Dokaz Galois-evega izreka]
+    Naj bodo $s_i = b_i + 1/z,\ i = 0, 1, 2, \ldots$ funkcije z $b_i \geq 1$ za vse $i$. Po definiciji velja
+    \[
+        [b_0, b_1, b_2, \ldots] = \lim_{n \to \infty} s_0\cdots s_n (\infty),   
+    \]
+    kjer smo za argument v kompozitumu vstavili $\infty$, saj je to limitna točka argumentov. Predpostavimo da je zaporedje $b_0, b_1, b_2, \ldots$ periodično s periodo $k$ in označimo $S = s_0\cdots s_{k-1}$. Privlačno negibno točko $S$ označimo z $\zeta > 1$. Naj bo
+    \[
+        K = \{ \infty, s_0(\infty), s_0s_1(\infty), \ldots, s_0\cdots s_{k-2}(\infty)\}.
+    \]
+    S pomočjo leme sklepamo, da je $K \subset (1, \infty)$ in ker leži odbojna negibna točka $S$ na intervalu $(-1, 0)$ velja $S^n(z) \to \zeta$ za vse $z \in K$. To bi lahko ekvivalentno povedali kot $s_0\cdots s_n(\infty) \to \zeta$ ko $n \to \infty$. Torej
+    \[
+        \overline{[b_0, \ldots, b_{k-1}]} = [b_0, \ldots, b_{k-1}] = \zeta.
+    \]
+    Kot v lemi zdaj obrnimo periodo zaporedja na $b_{k-1}, \ldots, b_0$ in označimo privlačno negibno točko kompozituma $S = s_{k-1}\cdots s_0$ z $\tilde{\zeta}$. Po enakem premisleku kot zgoraj velja
+    \[
+        \overline{[b_{k-1}, \ldots, b_0]} = \tilde{\zeta}.
+    \]
+    Po lemi vemo, da je $- 1 / \tilde{\zeta}$ odbojna negibna točka $S$, hkrati pa za to točko velja, da je enaka algebraični konjugirani vrednosti druge negibne točke M\"{o}biusove transformacije $\zeta^*$. To nas pripelje do željenega rezultata
+    \[
+        \overline{[b_{k-1}, \ldots, b_0]} = - \frac{1}{\zeta^*}.
+    \]
+\end{proof}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\begin{definicija}
-aaabbbbbb
-\end{definicija}
-
-\begin{zgled}
-bbb
-\begin{table}[h]
-\[
-\begin{array}{clc}
- n & \{1,2,\ldots, n\}          & \varphi(n)       \\
- \hline
- 1 & \{{\bf 1}\}                    &     1      \\
- 2 & \{{\bf 1},2 \}                &     1      \\
- 3 & \{{\bf 1,2},3 \}             &     2      \\
- 4 & \{{\bf 1},2,{\bf 3},4 \} &     2      \\
- 5 & \{{\bf 1,2,3,4},5 \}       &     4      \\
- 6 & \{{\bf 1},2,3,4,{\bf 5},6 \} &     2
-\end{array}
-\] 
-\caption{Vrednosti funkcije $\varphi(n)$ za $n = 1,2,\ldots,6$}\label{fi}
-\end{table}
-
-
-\end{zgled}
-
-
-
-\begin{trditev}
-\label{fipp}
-fipp
-\end{trditev}
-
-\noindent
-{\em Dokaz:\/} ccc
-\qed
-
-
-\begin{zgled}
-aaa
-\end{zgled}
-
-
-\begin{eqnarray*}
-\varphi(n) &=& \prod_{i=1}^r \varphi\left(p_i^{k_i}\right)
-\ =\ \prod_{i=1}^r \left(p_i^{k_i} - p_i^{k_i-1}\right) \\
- &=& \left(\prod_{i=1}^r p_i^{k_i}\right) \times \prod_{i=1}^r \left(1 - \frac{1}{p_i}\right)
-\ =\ n \times \prod_{p\,|\,n} \left(1 - \frac{1}{p}\right). \qedm
-\end{eqnarray*}
-
-
-\begin{izrek}[Eulerjev izrek]
-Euler
-\end{izrek}
-
-\noindent
-{\em Dokaz:\/} ddd \qed
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\begin{eqnarray*}
-(f * (g + h))(n) &=& \sum_{d e = n} f(d)(g+h)(e)
-\ =\ \sum_{d e = n} f(d)(g(e)+h(e)) \\
- &=& \sum_{d e = n} f(d)g(e) + \sum_{d e = n} f(d)h(e) \\
- &=& (f * g + f * h)(n). \qedm
-\end{eqnarray*}
 
 
 \section*{Angleško-slovenski slovar strokovnih izrazov}
