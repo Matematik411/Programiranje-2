@@ -6,6 +6,9 @@
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{graphicx}
+\usepackage{url}
+\usepackage{hyperref}
+
 
 
 \def\N{\mathbb{N}} % mnozica naravnih stevil
@@ -28,7 +31,7 @@
 \newtheorem{zgled}{Zgled}
 \newenvironment{dokaz}[1][Dokaz]{\begin{proof}}{\end{proof}}
 
-\title{M\"{o}biusove transformacije in periodični verižni ulomki \\ 
+\title{M\"obiusove transformacije in periodični verižni ulomki \\ 
 \Large Seminar}
 \author{Nejc Zajc \\
 Fakulteta za matematiko in fiziko \\
@@ -52,7 +55,7 @@ Z verižnimi ulomki oblike
 \[
     b_0 + \cfrac{a_1}{b_1 + \cfrac{a_2}{b_2 + \ddots}},
 \]
-se večinoma prvič srečamo pri teoriji števil, kjer so njihovi členi naravna števila. A ko to ne velja več in so členi poljubna kompleksna števila hitro opazimo potrebo po novih pristopih. V članku si bomo ogledali pristop z M\"{o}biusovimi transformacijami. To so funkcije oblike 
+se večinoma prvič srečamo pri teoriji števil, kjer so njihovi členi naravna števila. A ko to ne velja več in so členi poljubna kompleksna števila, hitro opazimo potrebo po novih pristopih. V članku si bomo ogledali pristop z M\"obiusovimi transformacijami. To so funkcije oblike 
 \begin{equation}
 \label{Mob_def}
     g(z) = \frac{az + b}{cz + d},
@@ -63,7 +66,7 @@ Njihov pomen pri obravnavi verižnih ulomkov opazimo, če si definiramo $s_1(z) 
 \[
     s(z) = s_1(s_2(z)) = a + \cfrac{1}{b + \cfrac{1}{z}}  
 \]
-končen verižni ulomek in hkrati M\"{o}biusova transformacija. Transformacije bomo natančno definirali v poglavju \ref{Pogled_pogl} in jih uporabili v dokazu glavnega izreka tega članka, za začetek pa si natančneje oglejmo verižne ulomke.
+končen verižni ulomek in hkrati M\"obiusova transformacija. Transformacije bomo natančno definirali v poglavju \ref{Pogled_pogl} in jih uporabili v dokazu glavnega izreka tega članka, za začetek pa si natančneje oglejmo verižne ulomke.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -81,10 +84,10 @@ kjer je $b_0$ celo število, $b_1, b_2, \ldots$ pa naravna števila; enostaven v
     [b_0, b_1, b_2, \ldots] = b_0 + \cfrac{1}{b_1 + \cfrac{1}{b_2 + \ddots}} = \lim_{n \to \infty} [b_0, b_1, \ldots, b_n].
 \end{equation}
 
-Limita v \eqref{Ver_def} vedno obstaja, saj njegovi približki $[b_0, b_1, \ldots, b_n]$ strogo naraščajo za sode $n$, so v tem primeru navzgor omejeni z $[b_0, b_1]$ in posledično konvergirajo. Za lihe $n$ ti približki strogo padajo, so omejeni z $[b_0]$ in zato prav tako konvergirajo. Ker je razlika med zaporednima približkoma obratno sorazmerna z $n^2$, sta limiti enaki, posledično pa limita \eqref{Ver_def} obstaja. 
+Limita v \eqref{Ver_def} vedno obstaja, saj približki $[b_0, b_1, \ldots, b_n]$ verižnega ulomka strogo naraščajo za sode $n$, so v tem primeru navzgor omejeni z $[b_0, b_1]$ in posledično konvergirajo. Za lihe $n$ ti približki strogo padajo, so omejeni z $[b_0]$ in zato prav tako konvergirajo. Ker je razlika med zaporednima približkoma obratno sorazmerna z $n^2$, sta limiti enaki, posledično pa limita \eqref{Ver_def} obstaja. 
 
 Za verižni ulomek $[b_0, b_1, b_2, \ldots]$ rečemo, da je \emph{periodičen} s periodo $k$, če je $b_n = b_{n+k}$ za vsa naravna števila $n$. To zapišemo $\overline{[b_0, \ldots, b_{k-1}]}$.
-Za ulomek rečemo, da je \emph{sčasoma periodičen}, če je $b_n = b_{n+k}$ za vse dovolj velike $n$. Opazimo da v primeru, ko je $[b_0, b_1, b_2, \ldots]$ periodičen s periodo $k$, velja $b_0 = b_k \geq 1$. Člen $b_0$ je torej naravno število, vrednost periodičnega verižnega ulomka pa tako vedno večja od $1$. 
+Za ulomek rečemo, da je \emph{sčasoma periodičen}, če je $b_n = b_{n+k}$ za vse dovolj velike $n$. Opazimo, da v primeru, ko je $[b_0, b_1, b_2, \ldots]$ periodičen s periodo $k$, velja $b_0 = b_k \geq 1$. Člen $b_0$ je torej naravno število, vrednost periodičnega verižnega ulomka pa tako vedno večja od $1$. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -96,7 +99,7 @@ Za ulomek rečemo, da je \emph{sčasoma periodičen}, če je $b_n = b_{n+k}$ za 
 Naj bo $x$ kvadratni iracional. Tedaj je ničla celoštevilskega kvadratnega polinoma in je zato oblike $x = \frac{a + b\sqrt{c}}{d}$, kjer so $a$, $b$, $c$ in $d$ cela števila, izmed katerih $b$, $c$ in $d$ ne smejo biti enaki nič, $c > 0$ pa ni popolni kvadrat. Ko vstavimo $x$ v kvadratni celoštevilski polinom $P$, katerega ničla je, vidimo da je polinom do množenja s skalarjem enolično določen.
 Druga ničla polinoma $P$ je \emph{algebraična konjugirana vrednost} $x$, ki jo označimo z $x^* = \frac{a - b\sqrt{c}}{d}$.
 
-Za zapis realnih števil z enostavnimi verižnimi ulomki velja, da lahko vsako racionalno število zapišemo kot končen verižni ulomek, vsakemu iracionalnemu številu pa pripada enolično določen verižni ulomek oblike \eqref{Ver_def}. O verižnih ulomkih kvadratnih iracionalov lahko povemo še več, za iracionalno število $x = [b_0, b_1, b_2, \ldots]$ veljata naslednji lastnosti.
+Za zapis realnih števil z enostavnimi verižnimi ulomki velja, da lahko vsako racionalno število zapišemo kot končen verižni ulomek, vsakemu iracionalnemu številu pa pripada enolično določen verižni ulomek oblike \eqref{Ver_def}. O verižnih ulomkih kvadratnih iracionalov lahko povemo še več, za iracionalno število $x = [b_0, b_1, b_2, \ldots]$ namreč veljata naslednji lastnosti.
 \begin{trditev}
     Verižni ulomek $[b_0, b_1, b_2, \ldots]$ je sčasoma periodičen natanko tedaj, ko je $x$ kvadratni iracional.
 \end{trditev}
@@ -105,7 +108,7 @@ Za zapis realnih števil z enostavnimi verižnimi ulomki velja, da lahko vsako r
 \end{trditev} 
 Prvo ekvivalenco sta dokazala Euler, ki je pokazal, da sčasoma periodičen ulomek predstavlja kvadratni iracional, in Lagrange, ki je dokazal obrat. Drugo trditev pa je pokazal Galois.
 
-Osrednji namen tega članka je pokazati kako lahko s pomočjo M\"{o}biusovih transformacij na verižnih ulomkih dokažemo naslednji Galois-ev izrek.
+Osrednji namen tega članka je pokazati, kako lahko s pomočjo M\"obiusovih transformacij na verižnih ulomkih dokažemo naslednji Galois-ev izrek.
 
 \begin{izrek}[Galois-ev izrek]
     \label{Galois}
@@ -121,7 +124,7 @@ Naj $a,\ b \in \N$ in $\alpha = \overline{[a, b]}$. S substitucijo dobimo $\alph
     bz^2 - abz - a = 0.
 \end{equation}
 To sta torej $\alpha$ in $\alpha^*$. Ker iz Vietovih formul sledi $\alpha\alpha^* = - \frac{a}{b} < 0$, velja $\alpha > 0 > \alpha^*$.\\
-Definirajmo še $\beta = \overline{[b, a]}$. Enak premislek nas pripelje do ugotovitve, da sta $\beta$ in $\beta^*$ rešitvi $az^2 - abz - b =0$ ter da velja $\beta > 0 > \beta^*$. Če na zadnji enačbi uporabimo transformacijo $w = - 1 / z$, dobimo enačbo \eqref{Zgled}. Torej za rešitve te enačbe velja $\{\alpha, \alpha^*\} = \{-1/\beta, -1/\beta^*\}$ in zato $\beta = -1/\alpha^*$, kar bi nam povedal tudi Galois-ev izrek.
+Definirajmo še $\beta = \overline{[b, a]}$. Enak premislek nas pripelje do ugotovitve, da sta $\beta$ in $\beta^*$ rešitvi $az^2 - abz - b =0$ ter da velja $\beta > 0 > \beta^*$. Če na zadnji enačbi uporabimo transformacijo $w = - 1 / z$, dobimo enačbo \eqref{Zgled}. Torej za rešitve enačbe \eqref{Zgled} velja $\{\alpha, \alpha^*\} = \{-1/\beta, -1/\beta^*\}$ in zato $\beta = -1/\alpha^*$, kar bi nam povedal tudi Galois-ev izrek.
 \end{zgled}
 \newpage
 
@@ -130,18 +133,18 @@ Definirajmo še $\beta = \overline{[b, a]}$. Enak premislek nas pripelje do ugot
 \section{Širši pogled}
 \label{Pogled_pogl}
 
-Pred dokazom izreka, si bomo v tem poglavju ogledali delovanja in lastnosti kompleksnih funkcij, ravnine in v posebnem M\"{o}biusovih transformacij.
+Pred dokazom izreka, si bomo v tem poglavju ogledali lastnosti kompleksnih funkcij in ravnine, natančneje pa si bomo ogledali tudi M\"obiusove transformacije.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Kompleksna ravnina}
-Ko kompleksni ravnini $\C$ dodamo novo točko $\infty$ s tem tvorimo \emph{razširjeno kompleksno ravnino}, ki jo označimo $\Ci = \C \cup \{\infty\}$.
+Ko kompleksni ravnini $\C$ dodamo novo točko $\infty$, s tem tvorimo \emph{razširjeno kompleksno ravnino}, ki jo označimo $\Ci = \C \cup \{\infty\}$.
 \begin{definicija}
-Funkcija $g$ z domeno $\Ci$ je \textbf{M\"{o}biusova transformacija}, če jo lahko zapišemo v obliki \eqref{Mob_def}, kjer so $a$, $b$, $c$ in $d$ kompleksna števila za katera velja $ad - bc \neq 0$. \\
+Funkcija $g$ z domeno $\Ci$ je \textbf{M\"obiusova transformacija}, če jo lahko zapišemo v obliki \eqref{Mob_def}, kjer so $a$, $b$, $c$ in $d$ kompleksna števila za katera velja $ad - bc \neq 0$. \\
 Če je $c \neq 0$, potem v \eqref{Mob_def} velja $g(\infty) = \frac{a}{c}$ in $g(-\frac{d}{c}) = \infty$, sicer je $g(\infty) = \infty$.
 \end{definicija}
 
-Vsaka M\"{o}biusova transformacija $g$ je bijekcija $\Ci$, saj ima inverz funkcije oblike \eqref{Mob_def} enak $g^{-1}(z) = \frac{-dz + b}{cz - a}$. Vidimo da je $g^{-1}$ M\"{o}biusova transformacija, kratek račun pa nam utemelji, da to velja tudi za kompozitum dveh transformacij. Množica vseh M\"{o}biusovih transformacij je torej grupa. Pri njihovem komponiranju si lahko pomagamo z množenjem matrik, ki kot člene vsebujejo koeficiente funkcije. Da dobimo na ustreznih mestih enake koeficiente, nam utemeljita naslednji enakosti
+Vsaka M\"obiusova transformacija $g$ je bijekcija $\Ci$, saj ima inverz funkcije oblike \eqref{Mob_def} enak $g^{-1}(z) = \frac{-dz + b}{cz - a}$. Vidimo, da je $g^{-1}$ M\"obiusova transformacija, kratek račun pa nam utemelji, da to velja tudi za kompozitum dveh transformacij. Množica vseh M\"obiusovih transformacij je torej grupa. Pri njihovem komponiranju si lahko pomagamo z množenjem matrik, ki kot člene vsebujejo koeficiente funkcije. Da dobimo na ustreznih mestih enake koeficiente, nam utemeljita naslednji enakosti
 \begin{align*}
     \cfrac{a_1\cfrac{a_2z + b_2}{c_2z + d_2} + b_1}{c_1\cfrac{a_2z + b_2}{c_2z + d_2} + d_1} &= \frac{(a_1a_2 + b_1c_2)z + (a_1b_2 + b_1d_2)}{(c_1a_2 + d_1c_2)z + (c_1b_2+d_1d_2)},
     \\
@@ -162,36 +165,36 @@ Vsaka M\"{o}biusova transformacija $g$ je bijekcija $\Ci$, saj ima inverz funkci
 \end{align*}
 
 Označimo \emph{razširjeno realno os} kot $\R_{\infty} = \R \cup \infty$. 
-%M\"{o}biusova transformacija ohranja $\R_{\infty}$ natanko tedaj, ko so vsi koeficienti v \eqref{Mob_def} realna števila. Iz predpostavke, da $g$ ohranja $\R_{\infty}$ sledi željeno zaradi ................................. PREMISLI!!
-V primeru, ko so vsi koeficienti M\"{o}biusove transformacije $g$ realna števila, $g$ ohranja $\R_{\infty}$. Tedaj velja
+%M\"obiusova transformacija ohranja $\R_{\infty}$ natanko tedaj, ko so vsi koeficienti v \eqref{Mob_def} realna števila. Iz predpostavke, da $g$ ohranja $\R_{\infty}$ sledi željeno zaradi ................................. PREMISLI!!
+V primeru, ko so vsi koeficienti M\"obiusove transformacije $g$ realna števila, $g$ ohranja $\R_{\infty}$. Tedaj velja
 \[
     \text{Im}[g(z)] = \frac{(ad - bc)\text{Im[z]}}{|cz + d|^2},
 \]
-kar pomeni da $g$ ohranja zgornjo kompleksno polravnino $\H = \{x + iy\ ; x, y \in \R, y > 0\}$ natanko tedaj, ko velja $ad - bc > 0$. Primer za to je funkcija $h(z) = - \frac{1}{z}$. Nasprotno pa se v primeru, ko $ad - bc = -1$, kompleksni polravnini ravno zamenjata, kot je to pri $k(z) = \frac{1}{z}$.
+kar pomeni, da $g$ ohranja zgornjo kompleksno polravnino $\H = \{x + iy\ ; x, y \in \R, y > 0\}$ natanko tedaj, ko velja $ad - bc > 0$. Primer za to je funkcija $h(z) = - \frac{1}{z}$. Nasprotno pa se v primeru, ko $ad - bc = -1$, kompleksni polravnini ravno zamenjata, kot je to pri $k(z) = \frac{1}{z}$.
 
 Omenimo še, kako $\Ci$ opremimo z metriko. Stereografska projekcija je znan 
-homeomorfizem med $\C$ in enotsko sfero $\mathbb{S}$ brez ene točke v $\R^3$. To projekcijo lahko razširimo do homeomorfizma med $\Ci$ in celotno sfero $\mathbb{S}$ ter nato prenesemo Evklidsko metriko iz $\mathbb{S}$ v metriko $\chi$ na $\Ci$. Za metrični prostor $(\Ci, \chi)$ je nato vsaka M\"{o}biusova transformacija $g$ homeomorfizem prostora $\Ci$ samega vase.
+homeomorfizem med $\C$ in enotsko sfero $\mathbb{S}$ brez ene točke v $\R^3$. To projekcijo lahko razširimo do homeomorfizma med $\Ci$ in celotno sfero $\mathbb{S}$ ter nato prenesemo Evklidsko metriko iz $\mathbb{S}$ v metriko $\chi$ na $\Ci$. Za metrični prostor $(\Ci, \chi)$ je nato vsaka M\"obiusova transformacija $g$ homeomorfizem prostora $\Ci$ samega vase.
 
-V primeru zgornje polravnine $\H$ pa ob vpeljavi norme $||z|| = |z| / y$, kjer je $|z|$ absolutna vrednost kompleksnega števila $z$ in $y = \text{Im}[z]$, dobimo Poincar\'{e}-jev model polravnine, ki je eden izmed standardnih modelov hiperbolične ravnine. Tu so M\"{o}biusove transformacije, ki ohranjajo $\H$ ($ad - bc > 0$), ravno vse izometrije $\H$. Meja prostora ustreza $\R_{\infty}.$ 
+V primeru zgornje polravnine $\H$ pa ob vpeljavi norme $||z|| = |z| / y$, kjer je $|z|$ absolutna vrednost kompleksnega števila $z$ in $y = \text{Im}[z]$, dobimo Poincar\'{e}-jev model polravnine, ki je eden izmed standardnih modelov hiperbolične ravnine. Tu so M\"obiusove transformacije, ki ohranjajo $\H$ ($ad - bc > 0$), ravno vse izometrije $\H$. Meja prostora ustreza $\R_{\infty}.$ 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Modularna grupa}
 
 \begin{definicija}
-    \textbf{Modularna grupa} $\Gamma$ je grupa vseh M\"{o}biusovih transformacij oblike \eqref{Mob_def} s celoštevilskimi koeficienti $a$, $b$, $c$ in $d$, za katere velja $ad - bc = 1$.
+    \textbf{Modularna grupa} $\Gamma$ je grupa vseh M\"obiusovih transformacij oblike \eqref{Mob_def} s celoštevilskimi koeficienti $a$, $b$, $c$ in $d$, za katere velja $ad - bc = 1$.
 \end{definicija}
 
 Kot smo že omenili, elementi $\Gamma$ na $\H$ delujejo kot izometrije hiperbolične metrike, njihovo delovanje na $\R_{\infty}$ pa je tesno povezano s teorijo verižnih ulomkov. V grupi namreč med drugim leži tudi funkcija $s(z) = a + 1/(b + 1/z)$.
 
-Posebno zanimive so \emph{loksodromične izometrije} $\H$. To so M\"{o}biusove transformacije, ki ohranjajo $\H$ in imajo dve različni negibni točki. Primer takšne funkcije je $z \mapsto 2z$, katere negibni točki sta $0$ in $\infty$. Ob njihovi obravnavi pridemo do pomembne ugotovitve glede kvadratnih iracionalov.
+Posebno zanimive so \emph{loksodromične izometrije} $\H$. To so M\"obiusove transformacije, ki ohranjajo $\H$ in imajo dve različni negibni točki. Primer takšne funkcije je $z \mapsto 2z$, katere negibni točki sta $0$ in $\infty$. Ob njihovi obravnavi pridemo do pomembne ugotovitve glede kvadratnih iracionalov.
 \begin{trditev}
     \label{Lokso}
     Realno število $x$ je kvadratno iracionalno število natanko tedaj ko je negibna točka nekega loksodromičnega elementa $g$ modularne grupe $\Gamma$.\\
     Tedaj je algebraična konjugirana vrednost $x^*$ druga negibna točka $g$.
 \end{trditev}
 
-Tudi te trditve ne bomo dokazovali,  uporabili pa jo bomo pri dokazovanju izreka. V ta namen si oglejmo še eno pomembno lastnost. Če je $g$ loksodromična funckija z negibnima točkama $u$ in $v$, potem je ena izmed njih, recimo $u$, \emph{privlačna negibna točka}, druga (v tem primeru $v$) pa je \emph{odbojna negibna točka}. To pomeni da ob večkratni aplikaciji funkcije $g$ na elementu $z \neq v$ v limiti velja $g^n(z) = g(g(\cdots(g(z)))) \to u$. V že omenjenem primeru $z \mapsto 2z$ je $\infty$ privlačna negibna točka, $0$ pa je odbojna. Praviloma velja, da je negibna točka $w$ poljubne funkcije $f$ privlačna oziroma odbojna, če velja zaporedoma $|f'(w)| < 1$ oziroma $|f'(w)| > 1$.
+Tudi te trditve ne bomo dokazovali,  uporabili pa jo bomo pri dokazovanju izreka. V ta namen si oglejmo še eno pomembno lastnost. Če je $g$ loksodromična funckija z negibnima točkama $u$ in $v$, potem je ena izmed njih, recimo $u$, \emph{privlačna negibna točka}, druga (v tem primeru $v$) pa je \emph{odbojna negibna točka}. To pomeni da ob večkratni aplikaciji funkcije $g$ na elementu $z \neq v$ v limiti $n \to \infty$ velja $g^n(z) = g(g(\cdots(g(z)))) \to u$. V že omenjenem primeru $z \mapsto 2z$ je $\infty$ privlačna negibna točka, $0$ pa je odbojna. Praviloma velja, da je negibna točka $w$ poljubne funkcije $f$ privlačna oziroma odbojna, če velja zaporedoma $|f'(w)| < 1$ oziroma $|f'(w)| > 1$.
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -208,9 +211,7 @@ S pridobljenim znanjem bomo v tem poglavju dokazali Galois-ev izrek. Dokaz temel
     \[
         |s_i(z_1) - s_i(z_2)| < |z_1 - z_2|,
     \]
-    za vse $i$, lahko tudi to posplošimo na cel $S$. 
-    %ZAKAJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
-    Preko izreka o negibni točki lahko zato sklepamo, da ima $S$ negibno točko $\zeta \in (1, \infty)$. Za določitev vrste negibne točke si pomagamo z velikostjo odvoda. Ker velja $|s'_i(z)| < 1$ na celem $(1, \infty)$, lahko preko verižnega pravila za odvajanje kompozituma sklepamo $|S'(\zeta)| < 1$. To pomeni, da je $\zeta$ privlačna negibna točka kompozituma $S$.\\
+    za vse $i$, lahko tudi to posplošimo na cel $S$. Po Banachovem skrčitvenem načelu iz teh lastnosti sledi obstoj negibne točke $\zeta \in (1, \infty)$ kompozituma $S$. Za določitev vrste negibne točke si pomagamo z velikostjo odvoda. Ker velja $|s'_i(z)| < 1$ na celem $(1, \infty)$, lahko preko verižnega pravila za odvajanje kompozituma sklepamo $|S'(\zeta)| < 1$. To pomeni, da je $\zeta$ privlačna negibna točka kompozituma $S$.\\
     Definirajmo še $\tilde{S} = s_k \cdots s_1$. Analogni postopek nas pripelje do ugotovitve, da ima $\tilde{S}$ privlačno negibno točko $\tilde{\zeta} \in (1, \infty)$. Naj bo $\sigma(z) = -1/z$. Tedaj velja
     \[
         \delta s_i (z) = - \cfrac{1}{b + \cfrac{1}{z}} = \cfrac{1}{-\cfrac{1}{z} - b} = s^{-1}_i \delta (z),
@@ -256,57 +257,44 @@ Združimo zdaj vse v dokazu Galois-evega izreka, ki ga zaradi preglednosti še e
 \section*{Angleško-slovenski slovar strokovnih izrazov}
 
 
-\geslo{arithmetic function}{aritmetična funkcija}
+\geslo{algebraic conjugate}{algebraična konjugirana vrednost}
 
-\geslo{coprime}{tuj}
+\geslo{Banach fixed-point theorem}{Banachovo skrčitveno načelo}
 
-\geslo{Dirichlet convolution}{Dirichletova konvolucija}
+\geslo{continued fraction}{verižni ulomek}
 
-\geslo{Dirichlet ring}{Dirichletov kolobar, kolobar aritmetičnih funkcij}
+\geslo{eventually periodic}{sčasoma periodičen}
 
-\geslo{divisor}{delitelj}
+\geslo{extended complex plane}{razširjena kompleksna ravnina}
 
-\geslo{Euler's phi function, Euler's totient function}{Eulerjeva funkcija $\varphi$}
+\geslo{extended real axis}{razširjena realna os}
 
-\geslo{Euler's theorem}{Eulerjev izrek}
+\geslo{fixed point}{negibna točka}
 
-\geslo{Fermat's little theorem}{mali Fermatov izrek}
+\geslo{loxodromic isometries}{loksodromične izometrije}
 
-\geslo{fundamental theorem of arithmetic}{osnovni izrek aritmetike}
+\geslo{modular group}{modularna grupa}
 
-\geslo{greatest common divisor}{največji skupni delitelj, največja skupna mera}
+\geslo{M\"obius map}{M\"obiusova transformacija}
 
-\geslo{least common multiple}{najmanjši skupni večkratnik}
+\geslo{periodic}{periodičen}
 
-\geslo{M\"obius function}{M\"obiusova funkcija $\mu$}
-
-\geslo{M\"obius inversion}{M\"obiusov obrat, M\"obiusova inverzija}
-
-\geslo{multiple}{večkratnik}
-
-\geslo{prime}{praštevilo; praštevilski}
-
-\geslo{prime factor}{prafaktor}
-
-\geslo{prime number}{praštevilo}
-
-\geslo{relatively prime}{tuj}
-
+\geslo{quadratic irrational}{kvadratno iracionalno število}
 
 
 
 \begin{thebibliography}{1}
-\bibitem{AiZ}
-M.~Aigner in G.~M.~Ziegler, \emph{Proofs from THE BOOK}, 2.\ izdaja, Springer, Berlin--Heidelberg--New York, 2001.
-\bibitem{CaW}
-N.~Calkin in H.~S.~Wilf, Recounting the rationals,
-\emph{Amer.~Math.~Monthly}  \textbf{107}  (2000),  360--363.
-\bibitem{Gra}
-J.~Grasselli, \emph{Elementarna teorija števil}, DMFA -- založništvo, Ljubljana, 2009.
+
+\bibitem{Beardon}
+A.~F.~Beardon, \emph{M\"obius Maps and Periodic Continued Fractions}, Mathematics Magazine \textbf{88} (2015) 272--277.
+
+\bibitem{hyper-wiki}
+\emph{Hyperbolic geometry}, v: Wikipedia, The Free Encyclopedia, [ogled 27.~2.~2020], dostopno na \url{https://en.wikipedia.org/wiki/Hyperbolic_geometry}.
+
+\bibitem{half-plane-wiki}
+\emph{Poincar\'e half-plane model}, v: Wikipedia, The Free Encyclopedia, [ogled 27.~2.~2020], dostopno na \url{https://en.wikipedia.org/wiki/Poincar%C3%A9_half-plane_model}. 
+
 \end{thebibliography}
-
-
-
 
 
 \end{document}
