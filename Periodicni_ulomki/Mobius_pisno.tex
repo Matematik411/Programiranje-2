@@ -74,7 +74,7 @@ končen verižni ulomek in hkrati M\"obiusova transformacija. Transformacije bom
 
 Osredotočimo se na enostavne verižne ulomke. Enostaven verižni ulomek ima vse $a_i = 1$. Vpeljimo tudi krajši zapis, ki je v končni obliki enak
 \[
-    [b_0, b_1, \ldots, b_n] = b_0 + \cfrac{1}{b_1 + \cfrac{1}{\cdots + \cfrac{1}{b_n}}},
+    c_n = [b_0, b_1, \ldots, b_n] = b_0 + \cfrac{1}{b_1 + \cfrac{1}{\cdots + \cfrac{1}{b_n}}},
 \]
 
 kjer je $b_0$ celo število, $b_1, b_2, \ldots$ pa naravna števila; enostaven verižni ulomek je nato enak
@@ -84,7 +84,20 @@ kjer je $b_0$ celo število, $b_1, b_2, \ldots$ pa naravna števila; enostaven v
     [b_0, b_1, b_2, \ldots] = b_0 + \cfrac{1}{b_1 + \cfrac{1}{b_2 + \ddots}} = \lim_{n \to \infty} [b_0, b_1, \ldots, b_n].
 \end{equation}
 
-Limita v \eqref{Ver_def} vedno obstaja, saj približki $[b_0, b_1, \ldots, b_n]$ verižnega ulomka strogo naraščajo za sode $n$, so v tem primeru navzgor omejeni z $[b_0, b_1]$ in posledično konvergirajo. Za lihe $n$ ti približki strogo padajo, so omejeni z $[b_0]$ in zato prav tako konvergirajo. Ker je razlika med zaporednima približkoma obratno sorazmerna z $n^2$, sta limiti enaki, posledično pa limita \eqref{Ver_def} obstaja. 
+Za obravnavo te limite si oglejmo (\emph{Wallis - Eulerjevi}) zaporedji
+\begin{align*}
+    &p_n = b_np_{n-1} + p_{n-2} 
+    &\text{in}& 
+    &q_n = b_nq_{n-1} + q_{n-2},
+\end{align*}
+z začetnimi členi $p_{-1} = 1,\ p_0 = b_0,\ q_{-1} = 0$ in $q_0 = 1$. Z indukcijo lahko hitro vidimo, da za poljubno naravno število $n$ velja $[b_0, b_1, \ldots, b_n] = c_n = p_n/q_n$ in $q_n \geq n$. Za razlike približkov $c_n$ pa veljata naslednji enačbi
+\begin{align}
+    \label{razlika}
+    &c_n - c_{n-1} = \frac{(-1)^{n-1}}{q_nq_{n-1}}
+    &\text{in}&
+    &c_n - c_{n-2} = \frac{(-1)^nb_n}{q_nq_{n-2}}.
+\end{align}
+Tako vidimo, da zaporedje $\{c_{2n}\}_n$ strogo narašča, je navzgor omejeno s $c_1$ in posledično konvergira. Za lihe $n$ pa je druga vrednost v \eqref{razlika} negativna, zato zaporedje $\{c_{2n-1}\}_n$ monotono pada, je navzdol omejeno s $c_0$ in zato tudi konvergentno. Limita \eqref{Ver_def} bo tako obstajala, če sta limiti obeh podzaporedji enaki. To se zgodi natanko tedaj, ko je limita $n \to \infty$ prvega izraza v \eqref{razlika} enaka $0$, kar pa velja, saj je $q_n \geq n$.
 
 Za verižni ulomek $[b_0, b_1, b_2, \ldots]$ rečemo, da je \emph{periodičen} s periodo $k$, če je $b_n = b_{n+k}$ za vsa naravna števila $n$. To zapišemo $\overline{[b_0, \ldots, b_{k-1}]}$.
 Za ulomek rečemo, da je \emph{sčasoma periodičen}, če je $b_n = b_{n+k}$ za vse dovolj velike $n$. Opazimo, da v primeru, ko je $[b_0, b_1, b_2, \ldots]$ periodičen s periodo $k$, velja $b_0 = b_k \geq 1$. Člen $b_0$ je torej naravno število, vrednost periodičnega verižnega ulomka pa tako vedno večja od $1$. 
@@ -126,7 +139,7 @@ Naj $a,\ b \in \N$ in $\alpha = \overline{[a, b]}$. S substitucijo dobimo $\alph
 To sta torej $\alpha$ in $\alpha^*$. Ker iz Vietovih formul sledi $\alpha\alpha^* = - \frac{a}{b} < 0$, velja $\alpha > 0 > \alpha^*$.\\
 Definirajmo še $\beta = \overline{[b, a]}$. Enak premislek nas pripelje do ugotovitve, da sta $\beta$ in $\beta^*$ rešitvi $az^2 - abz - b =0$ ter da velja $\beta > 0 > \beta^*$. Če na zadnji enačbi uporabimo transformacijo $w = - 1 / z$, dobimo enačbo \eqref{Zgled}. Torej za rešitve enačbe \eqref{Zgled} velja $\{\alpha, \alpha^*\} = \{-1/\beta, -1/\beta^*\}$ in zato $\beta = -1/\alpha^*$, kar bi nam povedal tudi Galois-ev izrek.
 \end{zgled}
-\newpage
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -144,7 +157,7 @@ Funkcija $g$ z domeno $\Ci$ je \textbf{M\"obiusova transformacija}, če jo lahko
 Če je $c \neq 0$, potem v \eqref{Mob_def} velja $g(\infty) = \frac{a}{c}$ in $g(-\frac{d}{c}) = \infty$, sicer je $g(\infty) = \infty$.
 \end{definicija}
 
-Vsaka M\"obiusova transformacija $g$ je bijekcija $\Ci$, saj ima inverz funkcije oblike \eqref{Mob_def} enak $g^{-1}(z) = \frac{-dz + b}{cz - a}$. Vidimo, da je $g^{-1}$ M\"obiusova transformacija, kratek račun pa nam utemelji, da to velja tudi za kompozitum dveh transformacij. Množica vseh M\"obiusovih transformacij je torej grupa. Pri njihovem komponiranju si lahko pomagamo z množenjem matrik, ki kot člene vsebujejo koeficiente funkcije. Da dobimo na ustreznih mestih enake koeficiente, nam utemeljita naslednji enakosti
+Vsaka M\"obiusova transformacija $g$ je bijekcija $\Ci$, saj ima inverz funkcije oblike \eqref{Mob_def} enak $g^{-1}(z) = \frac{-dz + b}{cz - a}$. Velja tudi, da so takšne funkcije odvedljive in zato holomorfne. Ko združimo lastnosti vidimo, da so M\"obiusove transformacije biholomorfizmi. Opazimo, da je $g^{-1}$ M\"obiusova transformacija, kratek račun pa nam utemelji, da to velja tudi za kompozitum dveh transformacij. Množica vseh M\"obiusovih transformacij je torej grupa. Pri njihovem komponiranju si lahko pomagamo z množenjem matrik, ki kot člene vsebujejo koeficiente funkcije. Da dobimo na ustreznih mestih enake koeficiente, nam utemeljita naslednji enakosti
 \begin{align*}
     \cfrac{a_1\cfrac{a_2z + b_2}{c_2z + d_2} + b_1}{c_1\cfrac{a_2z + b_2}{c_2z + d_2} + d_1} &= \frac{(a_1a_2 + b_1c_2)z + (a_1b_2 + b_1d_2)}{(c_1a_2 + d_1c_2)z + (c_1b_2+d_1d_2)},
     \\
@@ -166,16 +179,15 @@ Vsaka M\"obiusova transformacija $g$ je bijekcija $\Ci$, saj ima inverz funkcije
 
 Ob predstavitvi M\"obiusove transformacije z matriko pripada preslikavi $g$ matrika $M$ s koeficienti iz $g$. Za $M$ velja, da ima neničelno determinanto, torej pripada \emph{splošni linearni grupi} $\text{GL}(2, \C)$. Isti preslikavi $g$ pa pripadajo tudi vse matrike $N = \lambda M$, za neničelna kompleksna števila $\lambda$. To pomeni, da je grupa M\"obiusovih transformacij izomorfna kvocientu obrnljivih matrik, po neničelnih večkratnikih identitete $\text{GL}(2, \C) / ((\C \setminus \{0\})I)$. Zadnji kvocient se imenuje \emph{projektivna linearna grupa}, označimo pa ga z $\text{PGL}(2, \C)$. Za M\"obiusovo transformacijo $g$ velja, da je natanko določena, ko poznamo njene slike treh različnih kompleksnih točk. Za poljubni trojici različnih točk lahko namreč postopoma konstruiramo transformacijo, ki slika elemente prve trojice zaporedoma v elemente druge. Ker velja tudi, da iz lastnosti, da $g$ slika trojico $(0, 1, \infty)$ zaporedoma v $(0, 1, \infty)$, sledi, da je ta $g$ enaka identiteti, lahko nato pokažemo tudi, da je naš izbor transformacije enoličen. Natančnejši dokaz te lastnosti, si lahko preberemo v članku \cite{Schwartz}.
 
-Označimo \emph{razširjeno realno os} kot $\R_{\infty} = \R \cup \infty$. V primeru, ko so vsi koeficienti M\"obiusove transformacije $g$ realna števila, $g$ ohranja $\R_{\infty}$. Tedaj velja
+Označimo \emph{razširjeno realno os} kot $\R_{\infty} = \R \cup \{\infty\}$. V primeru, ko so vsi koeficienti M\"obiusove transformacije $g$ realna števila, $g$ ohranja $\R_{\infty}$. Tedaj velja
 \[
     \text{Im}[g(z)] = \frac{(ad - bc)\text{Im[z]}}{|cz + d|^2},
 \]
 kar pomeni, da $g$ ohranja zgornjo kompleksno polravnino $\H = \{x + iy\ ; x, y \in \R, y > 0\}$ natanko tedaj, ko velja $ad - bc > 0$. Primer za to je funkcija $h(z) = - \frac{1}{z}$. Nasprotno pa se v primeru, ko $ad - bc = -1$, kompleksni polravnini ravno zamenjata, kot je to pri $k(z) = \frac{1}{z}$.
 
-Pomembna je tudi sama geometrija delovanja M\"obiusovih transformacij. Ohranjanje premic namreč ni značilno le za $R_\infty$. V $Ci$ se vse premice podaljšajo do $\infty$ in iz njih nastanejo krožnice. M\"obiusove transformacije tako na $\Ci$ slikajo krožnice v krožnice.
+Pomembna je tudi sama geometrija delovanja M\"obiusovih transformacij. Ohranjanje premic namreč ni značilno le za $R_\infty$. Na Riemmanovi sferi se vse premice podaljšajo do $\infty$ in iz njih nastanejo krožnice. M\"obiusove transformacije tako na $\Ci$ slikajo krožnice v krožnice.
 
-Omenimo še, kako $\Ci$ opremimo z metriko. Stereografska projekcija je znan 
-homeomorfizem med $\C$ in enotsko sfero $\mathbb{S}$ brez ene točke v $\R^3$. To projekcijo lahko razširimo do homeomorfizma med $\Ci$ in celotno sfero $\mathbb{S}$ ter nato prenesemo Evklidsko metriko iz $\mathbb{S}$ v metriko $\chi$ na $\Ci$. Za metrični prostor $(\Ci, \chi)$ je nato vsaka M\"obiusova transformacija $g$ homeomorfizem prostora $\Ci$ samega vase.
+Omenimo še, kako $\Ci$ opremimo z metriko. Stereografska projekcija je znan homeomorfizem med $\C$ in enotsko sfero $\mathbb{S}$ brez ene točke v $\R^3$. To projekcijo lahko razširimo do homeomorfizma med $\Ci$ in celotno sfero $\mathbb{S}$ ter nato prenesemo Evklidsko metriko iz $\mathbb{S}$ v metriko $\chi$ na $\Ci$. Za metrični prostor $(\Ci, \chi)$ je nato vsaka M\"obiusova transformacija $g$ homeomorfizem prostora $\Ci$ samega vase.
 
 V primeru zgornje polravnine $\H$ pa ob vpeljavi norme $||z|| = |z| / y$, kjer je $|z|$ absolutna vrednost kompleksnega števila $z$ in $y = \text{Im}[z]$, dobimo Poincar\'{e}-jev model polravnine, ki je eden izmed standardnih modelov hiperbolične ravnine. Tu so M\"obiusove transformacije, ki ohranjajo $\H$ ($ad - bc > 0$), ravno vse izometrije $\H$. Meja prostora ustreza $\R_{\infty}.$ 
 
@@ -189,15 +201,15 @@ V primeru zgornje polravnine $\H$ pa ob vpeljavi norme $||z|| = |z| / y$, kjer j
 
 Kot smo že omenili, elementi $\Gamma$ na $\H$ delujejo kot izometrije hiperbolične metrike, njihovo delovanje na $\R_{\infty}$ pa je tesno povezano s teorijo verižnih ulomkov. V grupi namreč med drugim leži tudi funkcija $s(z) = a + 1/(b + 1/z)$.
 
-Posebno zanimive so \emph{loksodromične izometrije} $\H$. To so M\"obiusove transformacije, ki ohranjajo $\H$ in imajo dve različni negibni točki. Primer takšne funkcije je $z \mapsto 2z$, katere negibni točki sta $0$ in $\infty$. Ob njihovi obravnavi pridemo do pomembne ugotovitve glede kvadratnih iracionalov.
+Posebno zanimive so \emph{loksodromične izometrije} $\H$. Loksodrome so krivulje na sferi, ki sekajo poldnevnike pod istim kotom, njihovo ime pa izhaja iz besed za nagib (\emph{loxos}) in smer (\emph{drome}). Njihove izometrije so M\"obiusove transformacije, ki ohranjajo $\H$ in imajo dve različni negibni točki. Primer takšne funkcije je $z \mapsto 2z$, katere negibni točki sta $0$ in $\infty$. Ob njihovi obravnavi pridemo do pomembne ugotovitve glede kvadratnih iracionalov.
 \begin{trditev}
     \label{Lokso}
     Realno število $x$ je kvadratno iracionalno število natanko tedaj ko je negibna točka nekega loksodromičnega elementa $g$ modularne grupe $\Gamma$.\\
     Tedaj je algebraična konjugirana vrednost $x^*$ druga negibna točka $g$.
 \end{trditev}
 
-Tudi te trditve ne bomo dokazovali,  uporabili pa jo bomo pri dokazovanju izreka. V ta namen si oglejmo še eno pomembno lastnost. Če je $g$ loksodromična funckija z negibnima točkama $u$ in $v$, potem je ena izmed njih, recimo $u$, \emph{privlačna negibna točka}, druga (v tem primeru $v$) pa je \emph{odbojna negibna točka}. To pomeni da ob večkratni aplikaciji funkcije $g$ na elementu $z \neq v$ v limiti $n \to \infty$ velja $g^n(z) = g(g(\cdots(g(z)))) \to u$. V že omenjenem primeru $z \mapsto 2z$ je $\infty$ privlačna negibna točka, $0$ pa je odbojna. Praviloma velja, da je negibna točka $w$ poljubne funkcije $f$ privlačna oziroma odbojna, če velja zaporedoma $|f'(w)| < 1$ oziroma $|f'(w)| > 1$.
-\newpage
+Tudi te trditve ne bomo dokazovali,  uporabili pa jo bomo pri dokazovanju izreka. V ta namen si oglejmo še eno pomembno lastnost. Če je $g$ loksodromična funckija z negibnima točkama $u$ in $v$, potem je ena izmed njih, recimo $u$, \emph{privlačna negibna točka}, druga (v tem primeru $v$) pa je \emph{odbojna negibna točka}. To pomeni da ob večkratni aplikaciji funkcije $g$ na elementu $z \neq v$, $n$-ti iterat $g^n(z)$ v limiti $n \to \infty$ konvergira proti $u$. V že omenjenem primeru $z \mapsto 2z$ je $\infty$ privlačna negibna točka, $0$ pa je odbojna. Ker imamo opravka z gladkimi funkcijami, lahko po Lagrangevem izreku sklepamo, da so oddaljenosti funkcijskih slik preko velikosti odvoda povezane z oddaljenostjo začetnih točk. V primeru, ko za negibno točko $w$ velja $|f'(w)| < 1$, se ji funkcijske slike ostalih točk ob ponovnih iteracijah vedno bolj približujejo. Vidimo torej, da je taka negibna točka privlačna. V primeru, ko za negibno točko $w$ velja $|f'(w)| > 1$, pa lahko sklepamo, da je $w$ odbojna negibna točka.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -214,18 +226,18 @@ S pridobljenim znanjem bomo v tem poglavju dokazali Galois-ev izrek. Dokaz temel
     \[
         z_{1, 2} = \frac{b_1 \pm \sqrt{b_1^2+4}}{2},
     \]
-    kjer v prvem primeru velja $z_1 > b_1 \geq 1$ in v drugem $z_2 \in (-1, 0)$. Pozitivna rešitev je privlačna negibna točka, ker velja, da $S$ slika v interval $[b_1, b_1 + 1]$ in $b_1 \geq 1$. \\
+    kjer v prvem primeru velja $z_1 > b_1 \geq 1$ in v drugem $z_2 \in (-1, 0)$. Ker velja $|S'(z_1)| = |-1/z_1^2| < 1/z_1 < 1$, je $z_1$ privlačna negibna točka. Zapišimo še, da $S$ v tem primeru slika v interval $(b_1, b_1 + 1]$. \\
     Za $k = 2$ je obravnavana funkcija
     \[
         S(z) = b_1 + \cfrac{1}{b_2 + \cfrac{1}{z}}.
     \]
-    Tudi tu podobno izračunamo rešitvi pripadajoče kvadratne enačbe $S(z) = z$ in vidimo, da je prva večja od $1$, druga pa leži na $(-1, 0)$. Funkcija $S$ v tem primeru slika na interval $[b_1 + 1/(b_2 + 1), b_1 + 1/b_2]$. Vidimo torej, da so vse funkcijske vrednosti $S(z) \geq b_1 + 1/(b_2 + 1) = a_1 > 1$. \\
-    Naj bo zdaj $S = s_1 \cdots s_k$, za $s_i(z) = b_i + 1/z$, $b_i \geq 1$ in $k > 2$. Poglejmo si kaj velja za velikosti odvodov. Zaradi $|s_i'(z)| = |-1 / z^2| \leq 1$ za vse $i$, lahko po verižnem pravilu za odvajanje kompozituma sklepamo $|S'(z)| = |s_k'(w_{k-1})\cdot s_{k-1}'(w_{k-2})\cdots s_1'(z)| \leq |s_k'(w_{k-1})| \cdot 1$, kjer so $w_i = s_i\cdots s_1(z)$ in zadnji neenačaj velja, ker so odvodi v splošnem po velikosti največ 1. Ker je $k > 2$ velja, da je $w_{k-1} > w_2 \geq a_1$. Dobili smo torej, da je $S'(z) \leq 1/a_1 < 1$. Ker je S gladka funkcija, po Lagrangevem izreku velja $|S(z_1) - S(z_2)| = |S'(\xi)(z_1 - z_2)| \leq |z_1 - z_2| / a_1$, kjer je $\xi$ neka točka med $z_1$ in $z_2$. To pomeni, da je $S$ skrčitev (na polnem metričnem prostoru $\R$) in ima zato negibno točko $\zeta$ znotraj svoje kodomene $(1, \infty)$. Ker je odvod po velikosti manjši od $1$ je ta negibna točka privlačna. \\
-    Definirajmo še $\tilde{S} = s_k \cdots s_1$. Analogni postopek nas pripelje do ugotovitve, da ima $\tilde{S}$ privlačno negibno točko $\tilde{\zeta} \in (1, \infty)$. Naj bo $\sigma(z) = -1/z$. Tedaj velja
+    Tudi tu podobno izračunamo rešitvi pripadajoče kvadratne enačbe $S(z) = z$ in vidimo, da je prva večja od $1$, druga pa leži na $(-1, 0)$. Odvod je enak $S'(z) = 1 / (b_2z + 1)^2$, zato za večjo izmed negibnih točk $z_1$ velja $|S'(z_1)| < 1 / 2^2 < 1$. Večja negibna točka je torej res privlačna. Funkcija $S$ v tem primeru slika na interval $[b_1 + 1/(b_2 + 1), b_1 + 1/b_2)$, zato so vse funkcijske vrednosti $S(z) \geq b_1 + 1/(b_2 + 1) = a_1 > 1$. \\
+    Naj bo zdaj $S = s_1 \cdots s_k$, za $s_i(z) = b_i + 1/z$, $b_i \geq 1$ in $k > 2$. Poglejmo si, kaj velja za velikosti odvodov. Zaradi $|s_i'(z)| = |-1 / z^2| \leq 1$ za vse $i$, lahko po verižnem pravilu za odvajanje kompozituma sklepamo $|S'(z)| = |s_k'(w_{k-1})\cdot s_{k-1}'(w_{k-2})\cdots s_1'(z)| \leq |s_k'(w_{k-1})| \cdot 1$, kjer so $w_i = s_i\cdots s_1(z)$ in zadnji neenačaj velja, ker so odvodi v splošnem po velikosti največ 1. Ker je $k > 2$ velja, da je $w_{k-1} > w_2 \geq a_1$. Dobili smo torej, da je $S'(z) \leq 1/a_1^2 < 1$. Ker je S gladka funkcija, po Lagrangevem izreku velja $|S(z_1) - S(z_2)| = |S'(\xi)(z_1 - z_2)| \leq |z_1 - z_2| / a_1^2$, kjer je $\xi$ neka točka med $z_1$ in $z_2$. To pomeni, da je $S$ skrčitev (na polnem metričnem prostoru $\R$) in ima zato negibno točko $\zeta$ znotraj svoje kodomene $(1, \infty)$. Ker je odvod po velikosti manjši od $1$, je ta negibna točka privlačna. \\
+    Definirajmo še $\tilde{S} = s_k \cdots s_1$. Analogni postopek nas pripelje do ugotovitve, da ima $\tilde{S}$ privlačno negibno točko $\tilde{\zeta} \in (1, \infty)$. Naj bo $\delta(z) = -1/z$. Tedaj velja
     \[
-        \delta s_i (z) = - \cfrac{1}{b + \cfrac{1}{z}} = \cfrac{1}{-\cfrac{1}{z} - b} = s^{-1}_i \delta (z),
+        \delta s_i (z) = - \cfrac{1}{b_i + \cfrac{1}{z}} = \cfrac{1}{-\cfrac{1}{z} - b_i} = s^{-1}_i \delta (z),
     \]
-    za vse $z$ in $i$. Posledično velja tudi $\delta S = \tilde{S}^{-1} \delta$. Ko v zadnjo enačbo vstavimo $\delta (\tilde{\zeta})$ vidimo, da je to negibna točka kompozituma $S$. Ker $\delta (\tilde{\zeta}) \in (-1, 0)$ je to od $\zeta$ različna negibna točka in je zato odbojna.
+    za vse $z$ in $i$. Posledično velja tudi $\delta S = \tilde{S}^{-1} \delta$. Ko v zadnjo enačbo vstavimo $\delta (\tilde{\zeta})$ vidimo, da je to negibna točka kompozituma $S$. Ker velja $\delta (\tilde{\zeta}) \in (-1, 0)$, je to od $\zeta$ različna točka in je zato odbojna.
 \end{dokaz}
 
 Združimo zdaj vse v dokazu Galois-evega izreka, ki ga zaradi preglednosti še enkrat zapišimo.
@@ -240,11 +252,11 @@ Združimo zdaj vse v dokazu Galois-evega izreka, ki ga zaradi preglednosti še e
     \[
         [b_0, b_1, b_2, \ldots] = \lim_{n \to \infty} s_0\cdots s_n (\infty),   
     \]
-    kjer smo za argument v kompozitumu vstavili $\infty$, saj je to limitna točka argumentov. Predpostavimo da je zaporedje $b_0, b_1, b_2, \ldots$ periodično s periodo $k$ in označimo $S = s_0\cdots s_{k-1}$. Privlačno negibno točko $S$ označimo z $\zeta > 1$. Naj bo
+    kjer bi lahko namesto $\infty$ vstavili poljubno točko, ki je različna od odbojne negibne točke iz leme. Predpostavimo da je zaporedje $b_0, b_1, b_2, \ldots$ periodično s periodo $k$ in označimo $S = s_0\cdots s_{k-1}$. Privlačno negibno točko $S$ označimo z $\zeta > 1$. Naj bo
     \[
         K = \{ \infty, s_0(\infty), s_0s_1(\infty), \ldots, s_0\cdots s_{k-2}(\infty)\}.
     \]
-    S pomočjo leme sklepamo, da je $K \subset (1, \infty)$ in ker leži odbojna negibna točka $S$ na intervalu $(-1, 0)$ velja $S^n(z) \to \zeta$ za vse $z \in K$. To bi lahko ekvivalentno povedali kot $s_0\cdots s_n(\infty) \to \zeta$ ko $n \to \infty$. Torej je
+    S pomočjo leme sklepamo, da je $K \subset [1, \infty)$ in ker leži odbojna negibna točka $S$ na intervalu $(-1, 0)$ velja $S^n(z) \to \zeta$ za vse $z \in K$. To bi lahko ekvivalentno povedali kot $s_0\cdots s_n(\infty) \to \zeta$ ko $n \to \infty$. Torej je
     \[
         \overline{[b_0, \ldots, b_{k-1}]} = [b_0, \ldots, b_{k-1}] = \zeta.
     \]
