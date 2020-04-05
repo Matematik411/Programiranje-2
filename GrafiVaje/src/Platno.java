@@ -26,24 +26,53 @@ public class Platno extends JPanel implements MouseListener, MouseMotionListener
 	private LinkedList<Tocka> oznacene;
 	private Color barvaOznacene;
 	private int prejsnjiX, prejsnjiY;
+	private double aktX, aktY;
 
 
 	
-	public Platno(int s, int v, Color b, Color c, Color d, Color e) {
+	public Platno(int s, int v) {
 		sirina = s;
 		visina = v;
 		graf = null;
 		aktivnaTocka = null;
-		barvaPovezave = b;
-		barvaTocke = c;
-		barvaAktivne = d;
-		barvaOznacene = e;
+		barvaPovezave = Color.RED;
+		barvaTocke = Color.BLUE;
+		barvaAktivne = Color.YELLOW;
+		barvaOznacene = Color.BLACK;
 		oznacene = new LinkedList<Tocka>();
 		addMouseListener(this);
 		addMouseMotionListener(this);
 		addKeyListener(this);
 		setFocusable(true);
 		
+	}
+	
+	public void setTocke(Color b) {
+		barvaTocke = b;
+	}
+	public Color getTocke () {
+		return barvaTocke;
+	}
+	
+	public void setPovezave(Color b) {
+		barvaPovezave = b;
+	}
+	public Color getPovezave () {
+		return barvaPovezave;
+	}
+	
+	public void setAktivna(Color b) {
+		barvaAktivne = b;
+	}
+	public Color getAktivna () {
+		return barvaAktivne;
+	}
+	
+	public void setOznacene(Color b) {
+		barvaOznacene = b;
+	}
+	public Color getOznacene () {
+		return barvaOznacene;
 	}
 	
 	public void narisi(Graf g) {
@@ -160,23 +189,7 @@ public class Platno extends JPanel implements MouseListener, MouseMotionListener
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		int x = e.getX();
-		int y = e.getY();
-		Tocka q = null;
-		for(Map.Entry<String, Tocka> ime : graf.slovar.entrySet()) {
-			Tocka t = ime.getValue();
-			if (((x-t.x)*(x-t.x) + (y-t.y)*(y-t.y) ) < 25) {
-				q = t;
-			}
-		}
-		if (oznacene.contains(q)) {
-			oznacene.remove(q);
-		}
-		else {
-			oznacene.addLast(q);
-		}
-		
-		
+		// TODO Auto-generated method stub
 	}
 
 	@Override
@@ -199,6 +212,8 @@ public class Platno extends JPanel implements MouseListener, MouseMotionListener
 			Tocka t = ime.getValue();
 			if (((x-t.x)*(x-t.x) + (y-t.y)*(y-t.y) ) < 25) {
 				aktivnaTocka = t;
+				aktX = t.x;
+				aktY = t.y;
 			}
 		}
 		prejsnjiX = x;
@@ -208,15 +223,25 @@ public class Platno extends JPanel implements MouseListener, MouseMotionListener
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
+		int x = e.getX();
+		int y = e.getY();
 		if (aktivnaTocka == null) {
-			int x = e.getX();
-			int y = e.getY();
 			Tocka t = graf.dodajTocko(x, y);
 			for (Tocka r : oznacene) {
 				graf.dodajPovezavo(t, r);
 			}
 		}
-		aktivnaTocka = null;
+		else {
+			if ((aktivnaTocka.x == aktX) && (aktivnaTocka.y == aktY)) {
+				if (oznacene.contains(aktivnaTocka)) {
+					oznacene.remove(aktivnaTocka);
+				}
+				else {
+					oznacene.addLast(aktivnaTocka);
+				}
+			}
+			aktivnaTocka = null;
+		}
 	}
 	
 	@Override

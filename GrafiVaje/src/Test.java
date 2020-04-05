@@ -1,5 +1,4 @@
 
-import java.awt.Color;
 
 public class Test {
 
@@ -26,12 +25,12 @@ public class Test {
 		k.razporedi(350, 350);
 		k.izpis();
 			
-		Graf l = g.polnDvodelen(10, 4, 250);
+		Graf l = g.polnDvodelen(10, 4, 200);
 		l.razporedi(300, 300);
 		l.izpis();
 		
 		
-		Okno okno1 = new Okno (650, 650, Color.RED, Color.BLUE, Color.YELLOW, Color.BLACK);
+		Okno okno1 = new Okno (650, 650);
 		okno1.pack();
 		okno1.setVisible(true);
 		okno1.dodaj(l);
