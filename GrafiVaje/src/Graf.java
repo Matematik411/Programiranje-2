@@ -1,18 +1,19 @@
-package tretje;
+
 
 import java.util.Map;
-import java.util.Set;
 import java.util.HashMap;
-import java.util.Iterator;
 
 
 public class Graf {
 	protected int stevec;
 	protected Map<String, Tocka> slovar;
+	protected int polmer;
+
 	
-	public Graf () {
+	public Graf (int r) {
 		stevec = 0;
 		slovar = new HashMap<String, Tocka>();
+		polmer = r;
 	}
 
 	public Tocka tocka(String s) {
@@ -44,6 +45,16 @@ public class Graf {
 		return dodajTocko(String.valueOf(stevec));
 	}
 	
+	public Tocka dodajTocko(int x, int y) {
+		stevec++;
+		Tocka t =  dodajTocko(String.valueOf(stevec));
+		t.x = x;
+		t.y = y;
+		return t;
+	}
+	
+	
+	
 	public void dodajPovezavo(Tocka t, Tocka r) {
 		if (t != r) {
 			t.sosedi.add(r);
@@ -71,29 +82,29 @@ public class Graf {
 		return tab;
 	}
 
-	public Graf prazen(int n) {
-		Graf g = new Graf();
+	public Graf prazen(int n, int r) {
+		Graf g = new Graf(r);
 		g.dodajTocke(n);
 		return g;
 	}
 	
-	public Graf cikel(int n) {
-		Graf g = new Graf();
+	public Graf cikel(int n, int r) {
+		Graf g = new Graf(r);
 		Tocka a = g.dodajTocko();
 		Tocka prva = a;
 		for (int i = 1; i < n ; i++) {
-			Tocka b = g.dodajTocko();
-			dodajPovezavo(a, b);
-			a = b;
+			Tocka q = g.dodajTocko();
+			dodajPovezavo(a, q);
+			a = q;
 			if (i == n - 1) {
-				dodajPovezavo(prva, b);
+				dodajPovezavo(prva, q);
 			}
 		}
 		return g;
 	}
 	
-	public Graf poln(int n) {
-		Graf g = prazen(n);
+	public Graf poln(int n, int r) {
+		Graf g = prazen(n, r);
 		for(Map.Entry<String, Tocka> prva : g.slovar.entrySet()) {
 			for(Map.Entry<String, Tocka> druga : g.slovar.entrySet()) {
 				if (prva.getKey() != druga.getKey()) {
@@ -107,20 +118,20 @@ public class Graf {
 	
 	
 	
-	public Graf polnDvodelen(int n, int m) {
-		Graf g = new Graf();
+	public Graf polnDvodelen(int n, int m, int r) {
+		Graf g = new Graf(r);
 		Tocka[] prve = g.dodajTocke(n);
 		g.dodajTocke(m);
 		for(Map.Entry<String, Tocka> prva : g.slovar.entrySet()) {
 			for(Map.Entry<String, Tocka> druga : g.slovar.entrySet()) {
 				Tocka t = prva.getValue();
-				Tocka r = druga.getValue();
+				Tocka s = druga.getValue();
 				boolean dodaj = false;
 				for (Tocka q : prve) {
 					if (q == t) {
 						dodaj = !dodaj;
 					}
-					if (q == r) {
+					if (q == s) {
 						dodaj = !dodaj;
 					}
 				}
@@ -132,8 +143,17 @@ public class Graf {
 		return g;
 	}
 	
-	
-	
+	public void razporedi(double x, double y) {
+		int velikost = slovar.size();
+		double alpha = 2 * Math.PI / velikost;
+		double kot = 0;
+		for(Map.Entry<String, Tocka> ime : slovar.entrySet()) {
+			Tocka t = ime.getValue();
+			t.x = x + Math.cos(kot) * polmer;
+			t.y = y + Math.sin(kot) * polmer;
+			kot += alpha;
+		}
+	}
 	
 	
 	
