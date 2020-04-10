@@ -1,0 +1,150 @@
+%\documentclass[handout]{beamer}
+\documentclass{beamer}
+
+\usetheme{Madrid}
+\usecolortheme{seahorse}
+\useinnertheme{circles} 
+\useoutertheme{split}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+\usepackage[slovene]{babel}
+\usepackage[OT2,T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsfonts,amsmath,amssymb,amsthm}
+\usepackage{colortbl}
+\usepackage[all]{xy}
+
+
+\newtheorem{izrek}[theorem]{Izrek}
+\newtheorem{trditev}[theorem]{Trditev}
+\newtheorem{posledica}[theorem]{Posledica}
+\newtheorem{vprasanje}[theorem]{Vpra\v anje}
+\newtheorem{lema}[theorem]{Lema}
+\newtheorem{definicija}{Definicija}
+
+\beamertemplatenavigationsymbolsempty
+
+\title{M\"obiusove transformacije in periodični verižni ulomki}
+\author[Nejc Zajc]{Nejc Zajc}
+%\institute{University of Ljubljana, Slovenia}
+\date{Seminar, 14. 4. 2020}
+
+\begin{document}
+%%%%%
+\begin{frame}
+\maketitle
+
+\end{frame}
+%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Verižni ulomki}
+Verižni ulomki so oblike
+\[
+    b_0 + \cfrac{a_1}{b_1 + \cfrac{a_2}{b_2 + \ddots}}.
+\]  
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Verižni ulomki}
+Enostavni verižni ulomki so 
+\[
+    [b_0, b_1, b_2, \ldots] = b_0 + \cfrac{1}{b_1 + \cfrac{1}{b_2 + \ddots}} = \lim_{n \to \infty} [b_0, b_1, \ldots, b_n].
+\]
+Njihove približke označujemo
+\[
+    c_n = [b_0, b_1, \ldots, b_n] = b_0 + \cfrac{1}{b_1 + \cfrac{1}{\cdots + \cfrac{1}{b_n}}}.
+\]
+Periodični verižni ulomek označimo $\overline{[b_0, \ldots, b_{k-1}]}$.
+
+
+
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Kvadratna iracionalna števila}
+\begin{definicija}
+    Realno število $x$ je \textbf{kvadratno iracionalno število} (kvadratni iracional), če je iracionalno število in ničla kvadratnega polinoma $P$ s celoštevilskimi koeficienti.
+\end{definicija}
+\pause
+\begin{trditev}
+    Verižni ulomek $[b_0, b_1, b_2, \ldots]$ je sčasoma periodičen natanko tedaj, ko je $x$ kvadratni iracional.
+\end{trditev}
+\pause
+\begin{trditev}
+    Verižni ulomek $[b_0, b_1, b_2, \ldots]$ je periodičen natanko tedaj, ko je $x$ kvadratni iracional, katerega algebraična konjugirana vrednost $x^*$ leži na intervalu $(-1, 0)$.
+\end{trditev} 
+
+
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Galois-ev izrek}
+\begin{izrek}[Galois-ev izrek]
+    \label{Galois}
+    Za $x = \overline{[b_0, \ldots, b_{k-1}]}$ velja $\overline{[b_{k-1}, \ldots, b_0]} = - \frac{1}{x^*}.$
+\end{izrek}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{M\"obiusova transformacija}
+\begin{definicija}
+    Funkcija $g$ z domeno $\mathbb{C}_{\infty} = \mathbb{C} \cup \{\infty\}$ je \textbf{M\"obiusova transformacija}, če jo lahko zapišemo v obliki
+    \[
+        g(z) = \frac{az + b}{cz + d},
+    \]
+    kjer so $a$, $b$, $c$ in $d$ kompleksna števila za katera velja $ad - bc \neq 0$. \\
+    Če je $c \neq 0$, potem velja $g(\infty) = \frac{a}{c}$ in $g(-\frac{d}{c}) = \infty$, sicer je $g(\infty) = \infty$.
+\end{definicija}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Modularna grupa}
+\begin{definicija}
+    \textbf{Modularna grupa} $\Gamma$ je grupa vseh M\"obiusovih transformacij s celoštevilskimi koeficienti $a$, $b$, $c$ in $d$, za katere velja $ad - bc = 1$.
+\end{definicija}
+\pause
+\begin{definicija}
+    Loksodromične izometrije $\mathbb{H}$ so M\"obiusove transformacije, ki ohranjajo $\mathbb{H}$ in imajo dve različni negibni točki. 
+\end{definicija}
+\pause
+\begin{trditev}
+    Realno število $x$ je kvadratno iracionalno število natanko tedaj ko je negibna točka nekega loksodromičnega elementa $g$ modularne grupe $\Gamma$.\\
+    Tedaj je algebraična konjugirana vrednost $x^*$ druga negibna točka $g$.
+\end{trditev}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Dokaz izreka}
+\begin{lema}
+    Za funkcije $s_i$, $i \in \{1, \ldots, k\}$ oblike $s : z \mapsto b + 1/z$, kjer je $b \geq 1$, ima končni kompozitum $S = s_1 \cdots s_k$ privlačno negibno točko $\zeta \in (1, \infty)$ in odbojno negibno točko $\tilde{\zeta} \in (-1, 0)$. 
+\end{lema}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+
+\begin{izrek}[Galois-ev izrek]
+    Za $x = \overline{[b_0, \ldots, b_{k-1}]}$ velja $\overline{[b_{k-1}, \ldots, b_0]} = - \frac{1}{x^*}.$
+\end{izrek}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% končen slide?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
