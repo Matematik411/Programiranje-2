@@ -23,7 +23,7 @@
 \newtheorem{lema}[theorem]{Lema}
 \newtheorem{definicija}{Definicija}
 
-\beamertemplatenavigationsymbolsempty
+%\beamertemplatenavigationsymbolsempty
 
 \title{M\"obiusove transformacije in periodični verižni ulomki}
 \author[Nejc Zajc]{Nejc Zajc}
@@ -31,14 +31,14 @@
 \date{Seminar, 14. 4. 2020}
 
 \begin{document}
-%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \maketitle
 
 \end{frame}
-%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Verižni ulomki}
 Verižni ulomki so oblike
@@ -47,17 +47,18 @@ Verižni ulomki so oblike
 \]  
 
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Verižni ulomki}
-Enostavni verižni ulomki so 
+Za celo število $b_0$ in naravna števila $b_1, b_2, \ldots$ je enostavni verižni ulomek 
 \[
     [b_0, b_1, b_2, \ldots] = b_0 + \cfrac{1}{b_1 + \cfrac{1}{b_2 + \ddots}} = \lim_{n \to \infty} [b_0, b_1, \ldots, b_n].
 \]
-Njihove približke označujemo
+Njegove približke označujemo
 \[
     c_n = [b_0, b_1, \ldots, b_n] = b_0 + \cfrac{1}{b_1 + \cfrac{1}{\cdots + \cfrac{1}{b_n}}}.
 \]
+\pause
 Periodični verižni ulomek označimo $\overline{[b_0, \ldots, b_{k-1}]}$.
 
 
@@ -65,7 +66,7 @@ Periodični verižni ulomek označimo $\overline{[b_0, \ldots, b_{k-1}]}$.
 
 
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Kvadratna iracionalna števila}
 \begin{definicija}
@@ -85,7 +86,7 @@ Periodični verižni ulomek označimo $\overline{[b_0, \ldots, b_{k-1}]}$.
 
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Galois-ev izrek}
 \begin{izrek}[Galois-ev izrek]
@@ -96,7 +97,7 @@ Periodični verižni ulomek označimo $\overline{[b_0, \ldots, b_{k-1}]}$.
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{M\"obiusova transformacija}
 \begin{definicija}
@@ -109,7 +110,7 @@ Periodični verižni ulomek označimo $\overline{[b_0, \ldots, b_{k-1}]}$.
 \end{definicija}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Modularna grupa}
 \begin{definicija}
@@ -127,7 +128,7 @@ Periodični verižni ulomek označimo $\overline{[b_0, \ldots, b_{k-1}]}$.
 
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Dokaz izreka}
 \begin{lema}
@@ -135,16 +136,16 @@ Periodični verižni ulomek označimo $\overline{[b_0, \ldots, b_{k-1}]}$.
 \end{lema}
 
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-
+\frametitle{Dokaz izreka}
 \begin{izrek}[Galois-ev izrek]
     Za $x = \overline{[b_0, \ldots, b_{k-1}]}$ velja $\overline{[b_{k-1}, \ldots, b_0]} = - \frac{1}{x^*}.$
 \end{izrek}
 
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % končen slide?
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
