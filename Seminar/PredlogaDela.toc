@@ -1,4 +1,0 @@
-\babel@toc {slovene}{}
-\contentsline {section}{\tocsection {}{1}{Uvod}}{4}{section.1}% 
-\contentsline {section}{\tocsection {}{}{Slovar strokovnih izrazov}}{4}{section*.2}% 
-\contentsline {section}{\tocsection {}{}{Literatura}}{4}{section*.3}% 
