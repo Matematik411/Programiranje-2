@@ -1,10 +1,14 @@
 
 
 import java.util.Map;
+import java.io.Serializable;
 import java.util.HashMap;
 
 
-public class Graf {
+public class Graf implements Serializable {
+	
+	static final long serialVersionUID = 1L;
+	
 	protected int stevec;
 	protected Map<String, Tocka> slovar;
 	protected int polmer;

@@ -1,12 +1,15 @@
 
 
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 
 
-public class Tocka {
+public class Tocka implements Serializable {
+	static final long serialVersionUID = 1L;
+	
 	protected String ime;
 	protected Set<Tocka> sosedi;
 	protected double x;

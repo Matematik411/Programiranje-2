@@ -27,6 +27,7 @@ public class Platno extends JPanel implements MouseListener, MouseMotionListener
 	private Color barvaOznacene;
 	private int prejsnjiX, prejsnjiY;
 	private double aktX, aktY;
+	private boolean narisi;
 
 
 	
@@ -49,6 +50,7 @@ public class Platno extends JPanel implements MouseListener, MouseMotionListener
 	
 	public void setTocke(Color b) {
 		barvaTocke = b;
+		setFocusable(true);
 	}
 	public Color getTocke () {
 		return barvaTocke;
@@ -56,6 +58,7 @@ public class Platno extends JPanel implements MouseListener, MouseMotionListener
 	
 	public void setPovezave(Color b) {
 		barvaPovezave = b;
+		setFocusable(true);
 	}
 	public Color getPovezave () {
 		return barvaPovezave;
@@ -63,6 +66,7 @@ public class Platno extends JPanel implements MouseListener, MouseMotionListener
 	
 	public void setAktivna(Color b) {
 		barvaAktivne = b;
+		setFocusable(true);
 	}
 	public Color getAktivna () {
 		return barvaAktivne;
@@ -70,9 +74,18 @@ public class Platno extends JPanel implements MouseListener, MouseMotionListener
 	
 	public void setOznacene(Color b) {
 		barvaOznacene = b;
+		setFocusable(true);
 	}
 	public Color getOznacene () {
 		return barvaOznacene;
+	}
+	
+	public Graf getGraf() {
+		return graf;
+	}
+	public void setGraf(Graf g) {
+		graf  = g;
+		setFocusable(true);
 	}
 	
 	public void narisi(Graf g) {
@@ -208,6 +221,7 @@ public class Platno extends JPanel implements MouseListener, MouseMotionListener
 	public void mousePressed(MouseEvent e) {
 		int x = e.getX();
 		int y = e.getY();
+		narisi = true;
 		for(Map.Entry<String, Tocka> ime : graf.slovar.entrySet()) {
 			Tocka t = ime.getValue();
 			if (((x-t.x)*(x-t.x) + (y-t.y)*(y-t.y) ) < 25) {
@@ -226,9 +240,11 @@ public class Platno extends JPanel implements MouseListener, MouseMotionListener
 		int x = e.getX();
 		int y = e.getY();
 		if (aktivnaTocka == null) {
-			Tocka t = graf.dodajTocko(x, y);
-			for (Tocka r : oznacene) {
-				graf.dodajPovezavo(t, r);
+			if (narisi) {
+				Tocka t = graf.dodajTocko(x, y);
+				for (Tocka r : oznacene) {
+					graf.dodajPovezavo(t, r);
+				}
 			}
 		}
 		else {
@@ -248,9 +264,11 @@ public class Platno extends JPanel implements MouseListener, MouseMotionListener
 	public void mouseDragged(MouseEvent e) {
 		int x = e.getX();
 		int y = e.getY();
+		narisi = false;
 		if (aktivnaTocka != null) {
 			aktivnaTocka.x = x;
 			aktivnaTocka.y = y;
+			
 		}
 		else {
 			for (Tocka t : oznacene) {
