@@ -232,7 +232,7 @@ S pridobljenim znanjem bomo v tem poglavju dokazali Galois-ev izrek. Dokaz temel
         S(z) = b_1 + \cfrac{1}{b_2 + \cfrac{1}{z}}.
     \]
     Tudi tu podobno izračunamo rešitvi pripadajoče kvadratne enačbe $S(z) = z$ in vidimo, da je prva večja od $1$, druga pa leži na $(-1, 0)$. Odvod je enak $S'(z) = 1 / (b_2z + 1)^2$, zato za večjo izmed negibnih točk $z_1$ velja $|S'(z_1)| < 1 / 2^2 < 1$. Večja negibna točka je torej res privlačna. Funkcija $S$ v tem primeru slika na interval $[b_1 + 1/(b_2 + 1), b_1 + 1/b_2)$, zato so vse funkcijske vrednosti $S(z) \geq b_1 + 1/(b_2 + 1) = a_1 > 1$. \\
-    Naj bo zdaj $S = s_1 \cdots s_k$, za $s_i(z) = b_i + 1/z$, $b_i \geq 1$ in $k > 2$. Poglejmo si, kaj velja za velikosti odvodov. Zaradi $|s_i'(z)| = |-1 / z^2| \leq 1$ za vse $i$, lahko po verižnem pravilu za odvajanje kompozituma sklepamo $|S'(z)| = |s_k'(w_{k-1})\cdot s_{k-1}'(w_{k-2})\cdots s_1'(z)| \leq |s_k'(w_{k-1})| \cdot 1$, kjer so $w_i = s_i\cdots s_1(z)$ in zadnji neenačaj velja, ker so odvodi v splošnem po velikosti največ 1. Ker je $k > 2$ velja, da je $w_{k-1} > w_2 \geq a_1$. Dobili smo torej, da je $S'(z) \leq 1/a_1^2 < 1$. Ker je S gladka funkcija, po Lagrangevem izreku velja $|S(z_1) - S(z_2)| = |S'(\xi)(z_1 - z_2)| \leq |z_1 - z_2| / a_1^2$, kjer je $\xi$ neka točka med $z_1$ in $z_2$. To pomeni, da je $S$ skrčitev (na polnem metričnem prostoru $\R$) in ima zato negibno točko $\zeta$ znotraj svoje kodomene $(1, \infty)$. Ker je odvod po velikosti manjši od $1$, je ta negibna točka privlačna. \\
+    Naj bo zdaj $S = s_1 \cdots s_k$, za $s_i(z) = b_i + 1/z$, $b_i \geq 1$ in $k > 2$. Poglejmo si, kaj velja za velikosti odvodov. Zaradi $|s_i'(z)| = |-1 / z^2| \leq 1$ za vse $i$, lahko po verižnem pravilu za odvajanje kompozituma sklepamo $|S'(z)| = |s_1'(w_{2})\cdot s_{2}'(w_{3})\cdots s_k'(z)| \leq |s_1'(w_{2})| \cdot 1$, kjer so $w_i = s_i\cdots s_k(z)$ in zadnji neenačaj velja, ker so odvodi v splošnem po velikosti največ 1. Ker je $k > 2$ velja, da ima kompozitum v $w_2$ vsaj dve funkciji in zato velja $w_2 \geq a_1$. Dobili smo torej, da je $S'(z) \leq 1/a_1^2 < 1$. Ker je S gladka funkcija, po Lagrangevem izreku velja $|S(z_1) - S(z_2)| = |S'(\xi)(z_1 - z_2)| \leq |z_1 - z_2| / a_1^2$, kjer je $\xi$ neka točka med $z_1$ in $z_2$. To pomeni, da je $S$ skrčitev (na polnem metričnem prostoru $\R$) in ima zato negibno točko $\zeta$ znotraj svoje kodomene $(1, \infty)$. Ker je odvod po velikosti manjši od $1$, je ta negibna točka privlačna. \\
     Definirajmo še $\tilde{S} = s_k \cdots s_1$. Analogni postopek nas pripelje do ugotovitve, da ima $\tilde{S}$ privlačno negibno točko $\tilde{\zeta} \in (1, \infty)$. Naj bo $\delta(z) = -1/z$. Tedaj velja
     \[
         \delta s_i (z) = - \cfrac{1}{b_i + \cfrac{1}{z}} = \cfrac{1}{-\cfrac{1}{z} - b_i} = s^{-1}_i \delta (z),
@@ -258,8 +258,8 @@ Združimo zdaj vse v dokazu Galois-evega izreka, ki ga zaradi preglednosti še e
     \]
     S pomočjo leme sklepamo, da je $K \subset [1, \infty)$ in ker leži odbojna negibna točka $S$ na intervalu $(-1, 0)$ velja $S^n(z) \to \zeta$ za vse $z \in K$. To bi lahko ekvivalentno povedali kot $s_0\cdots s_n(\infty) \to \zeta$ ko $n \to \infty$. Torej je
     \[
-        \overline{[b_0, \ldots, b_{k-1}]} = [b_0, \ldots, b_{k-1}] = \zeta.
-    \]
+        \overline{[b_0, \ldots, b_{k-1}]} = [b_0, b_1,  \ldots] = \zeta.
+    \] 
     Ker je $\zeta$ enak periodičnemu verižnemu ulomku, je kvadratni iracional in po trditvi \ref{Lokso} velja, da je $S \in \Gamma$. Iz te trditve sledi tudi, da je druga (odbojna) negibna točka $S$ enaka $\zeta^*$.
 
     Kot v lemi zdaj obrnimo periodo zaporedja na $b_{k-1}, \ldots, b_0$ in označimo privlačno negibno točko kompozituma $\tilde{S} = s_{k-1}\cdots s_0$ z $\tilde{\zeta}$. Po enakem premisleku kot zgoraj velja
