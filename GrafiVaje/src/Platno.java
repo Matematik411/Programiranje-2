@@ -45,7 +45,7 @@ public class Platno extends JPanel implements MouseListener, MouseMotionListener
 		addMouseMotionListener(this);
 		addKeyListener(this);
 		setFocusable(true);
-		
+
 	}
 	
 	public void setTocke(Color b) {

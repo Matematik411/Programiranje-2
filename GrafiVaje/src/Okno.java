@@ -1,4 +1,5 @@
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Window;
@@ -45,10 +46,11 @@ public class Okno extends JFrame implements ActionListener, ChangeListener {
 		glavniOkvir.setLayout(new BoxLayout(glavniOkvir, BoxLayout.Y_AXIS));
 		add(glavniOkvir);
 		
+		
 		// platno za grafe
 		platno = new Platno (s, v);
 		platno.getPreferredSize();
-		glavniOkvir.add(platno);
+		glavniOkvir.add(platno, BorderLayout.CENTER);
 		
 		// menu za nastavitve
 		JPanel menu = new JPanel();
@@ -221,7 +223,7 @@ public class Okno extends JFrame implements ActionListener, ChangeListener {
 				}
 			}
 		}
-		platno.setFocusable(true);
+		platno.grabFocus();
 		
 	}
 
