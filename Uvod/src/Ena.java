@@ -1,4 +1,3 @@
-
 public class Ena {
 
 	public static void main(String[] args) {
@@ -12,14 +11,14 @@ public class Ena {
 		String[] zap = new String[n];
 		zap[0] = "1";
 		for (int i = 1; i < n; ++i) {
-			String p = zap[i - 1];  // ne naredi kopije, samo še en kazalec na to spremenljivko
+			String p = zap[i - 1];  // ne naredi kopije, samo se en kazalec na to spremenljivko
 			String t = "";
-			int j = 0;              // indeks, ki bo šel čez niz p
+			int j = 0;              // indeks, ki bo sel cez niz p
 
 			while (j < p.length()) {  // zanka po blokih
 				int k = j;
 				while (j < p.length() && p.charAt(k) == p.charAt(j)) j++;
-				t += "" + (j - k) + p.charAt(k); // lepo spremeni vse v nize, zato tam na začetku ""
+				t += "" + (j - k) + p.charAt(k); // lepo spremeni vse v nize, zato tam na zacetku ""
 			};
 			
 			zap[i] = t; 
